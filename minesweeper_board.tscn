@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://beydyx0ttlffk"]
+
+[ext_resource type="Texture2D" uid="uid://b10uqnffryyxx" path="res://placeholder_image.png" id="1_60qh5"]
+[ext_resource type="StyleBox" uid="uid://5p0alem60er0" path="res://topbar_button.tres" id="1_yd3r8"]
+[ext_resource type="Script" uid="uid://2ms0h7mmbygt" path="res://GenerateBoard.gd" id="2_4h3n8"]
+[ext_resource type="StyleBox" uid="uid://cvu78p8pk3xkm" path="res://topbar_button_pressed.tres" id="2_joxs4"]
+[ext_resource type="StyleBox" uid="uid://dx68y17pn1bwj" path="res://topbar_button_hover.tres" id="3_l0ssw"]
+[ext_resource type="StyleBox" uid="uid://cpor7q4pqgonk" path="res://panel_container.tres" id="5_3finx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_se455"]
+load_path = "res://.godot/imported/placeholder_image.png-d981065933112fa65b36d444ebe22691.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ad7k2"]
+load_path = "res://.godot/imported/placeholder_image.png-d981065933112fa65b36d444ebe22691.ctex"
+
+[node name="MinesweeperBoard" type="Control" unique_id=408746770]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=276498774]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07514603, 0.449116, 0.45210344, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=1219837560]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TopBar" type="MarginContainer" parent="ColorRect/VBoxContainer" unique_id=501395029]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 130
+theme_override_constants/margin_right = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer/TopBar" unique_id=695556735]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="FlagButton" type="Button" parent="ColorRect/VBoxContainer/TopBar/HBoxContainer" unique_id=433309290]
+custom_minimum_size = Vector2(120, 115)
+custom_maximum_size = Vector2(120, 115)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_yd3r8")
+theme_override_styles/pressed = ExtResource("2_joxs4")
+theme_override_styles/hover = ExtResource("3_l0ssw")
+icon = SubResource("CompressedTexture2D_se455")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MineCounter" type="PanelContainer" parent="ColorRect/VBoxContainer/TopBar/HBoxContainer" unique_id=2088649505]
+custom_minimum_size = Vector2(175, 105)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_3finx")
+
+[node name="MineLabel" type="Label" parent="ColorRect/VBoxContainer/TopBar/HBoxContainer/MineCounter" unique_id=10418857]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7529412, 0.22352941, 0.16862746, 1)
+theme_override_font_sizes/font_size = 80
+text = "001"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FaceButton" type="Button" parent="ColorRect/VBoxContainer/TopBar/HBoxContainer" unique_id=1438278853]
+custom_minimum_size = Vector2(120, 115)
+custom_maximum_size = Vector2(120, 115)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_yd3r8")
+theme_override_styles/pressed = ExtResource("2_joxs4")
+theme_override_styles/hover = ExtResource("3_l0ssw")
+icon = ExtResource("1_60qh5")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Timer" type="PanelContainer" parent="ColorRect/VBoxContainer/TopBar/HBoxContainer" unique_id=1851824905]
+custom_minimum_size = Vector2(175, 105)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_3finx")
+
+[node name="TimerLabel" type="Label" parent="ColorRect/VBoxContainer/TopBar/HBoxContainer/Timer" unique_id=105353119]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7529412, 0.22352941, 0.16862746, 1)
+theme_override_font_sizes/font_size = 80
+text = "000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsButton" type="Button" parent="ColorRect/VBoxContainer/TopBar/HBoxContainer" unique_id=2021269875]
+custom_minimum_size = Vector2(120, 115)
+custom_maximum_size = Vector2(120, 115)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_yd3r8")
+theme_override_styles/pressed = ExtResource("2_joxs4")
+theme_override_styles/hover = ExtResource("3_l0ssw")
+icon = SubResource("CompressedTexture2D_ad7k2")
+icon_alignment = 1
+expand_icon = true
+
+[node name="BoardArea" type="MarginContainer" parent="ColorRect/VBoxContainer" unique_id=731860732]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Board" type="GridContainer" parent="ColorRect/VBoxContainer/BoardArea" unique_id=1038821625]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 16
+script = ExtResource("2_4h3n8")
