@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bjpyqr8w0haky"]
+
+[ext_resource type="Texture2D" uid="uid://cbgcfsjja43vb" path="res://boardMapLocation.png" id="1_tkf0t"]
+[ext_resource type="Material" uid="uid://cy6u15y7mqgvw" path="res://marker_material.tres" id="1_wqa5l"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_xmkr1"]
+material = ExtResource("1_wqa5l")
+radius = 0.025
+height = 0.05
+radial_segments = 8
+rings = 4
+
+[sub_resource type="QuadMesh" id="QuadMesh_hwc55"]
+material = ExtResource("1_wqa5l")
+size = Vector2(0.02, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmkr1"]
+next_pass = ExtResource("1_wqa5l")
+shading_mode = 0
+albedo_texture = ExtResource("1_tkf0t")
+billboard_mode = 2
+point_size = 73.5
+use_z_clip_scale = true
+z_clip_scale = 0.99
+
+[sub_resource type="QuadMesh" id="QuadMesh_fnwo5"]
+material = SubResource("StandardMaterial3D_xmkr1")
+size = Vector2(0.65, 0.905)
+
+[sub_resource type="QuadMesh" id="QuadMesh_1pbjg"]
+material = ExtResource("1_wqa5l")
+size = Vector2(0.68, 0.935)
+
+[node name="boardMaker" type="Node3D" unique_id=556395085]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=175675919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.014317274, 0)
+mesh = SubResource("SphereMesh_xmkr1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=383372464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28792804, 0)
+mesh = SubResource("QuadMesh_hwc55")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1960952061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98835135, 0)
+mesh = SubResource("QuadMesh_fnwo5")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1505771869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.988, 0)
+mesh = SubResource("QuadMesh_1pbjg")

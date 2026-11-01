@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cy6u15y7mqgvw"]
+
+[resource]
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+heightmap_scale = 15.182
+billboard_mode = 2

@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://dt5ygslnv6e2d"]
+
+[ext_resource type="Texture2D" uid="uid://ibgabrwr07xq" path="res://texture_dev_02.png" id="1_xhmua"]
+
+[node name="mapUI" type="Control" unique_id=2095448302]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="top" type="MarginContainer" parent="." unique_id=1001956648]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+
+[node name="Panel" type="Panel" parent="top" unique_id=2072370251]
+propagate_maximum_size = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="top" unique_id=911034472]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="TextureRect" parent="top/HBoxContainer" unique_id=727333125]
+layout_mode = 2
+texture = ExtResource("1_xhmua")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="top/HBoxContainer" unique_id=1733072299]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="top/HBoxContainer/VBoxContainer" unique_id=1664404255]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="top/HBoxContainer/VBoxContainer/MarginContainer" unique_id=375812114]
+layout_mode = 2
+text = "Username"
+
+[node name="ProgressBar" type="ProgressBar" parent="top/HBoxContainer/VBoxContainer" unique_id=399024416]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_vertical = 10
+value = 100.0
+show_percentage = false
+
+[node name="bottom" type="MarginContainer" parent="." unique_id=543340187]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -154.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="HSplitContainer" type="HBoxContainer" parent="bottom" unique_id=37935597]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="bottom/HSplitContainer" unique_id=2121647357]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 20
+
+[node name="Button" type="Button" parent="bottom/HSplitContainer/MarginContainer" unique_id=332866898]
+custom_minimum_size = Vector2(0, 100)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "Play "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bottom/HSplitContainer" unique_id=1323852201]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="spotpasses" type="Button" parent="bottom/HSplitContainer/VBoxContainer" unique_id=1186885795]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+text = "Nearby
+Players
+"
+autowrap_mode = 1
+
+[node name="leaderboard" type="Button" parent="bottom/HSplitContainer/VBoxContainer" unique_id=1317300890]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+text = "Leader-board
+"
+autowrap_mode = 1
+
+[node name="settings" type="Button" parent="bottom/HSplitContainer/VBoxContainer" unique_id=1968800311]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+text = "Settings"
