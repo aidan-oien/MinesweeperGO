@@ -7,6 +7,7 @@ bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
 bg_color = Color(0.31862992, 0.6126405, 0.9385581, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w2ea"]
+bg_color = Color(0.3779188, 0.3779189, 0.37791875, 1)
 
 [node name="Settings" type="Control" unique_id=557893005]
 layout_mode = 3
@@ -92,7 +93,9 @@ text = "Override Theme Sounds"
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1238337681]
 layout_mode = 2
+theme_override_font_sizes/font_size = 26
 theme_override_styles/normal = SubResource("StyleBoxFlat_4w2ea")
+selected = 0
 item_count = 3
 popup/item_0/text = "None"
 popup/item_0/id = 0
