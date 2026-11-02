@@ -1,17 +1,10 @@
 [gd_scene format=3 uid="uid://beydyx0ttlffk"]
 
-[ext_resource type="Texture2D" uid="uid://b10uqnffryyxx" path="res://placeholder_image.png" id="1_60qh5"]
-[ext_resource type="StyleBox" uid="uid://5p0alem60er0" path="res://topbar_button.tres" id="1_yd3r8"]
+[ext_resource type="Texture2D" uid="uid://d0mc18ovw2frs" path="res://flag.png" id="1_ad7k2"]
 [ext_resource type="Script" uid="uid://2ms0h7mmbygt" path="res://GenerateBoard.gd" id="2_4h3n8"]
-[ext_resource type="StyleBox" uid="uid://cvu78p8pk3xkm" path="res://topbar_button_pressed.tres" id="2_joxs4"]
-[ext_resource type="StyleBox" uid="uid://dx68y17pn1bwj" path="res://topbar_button_hover.tres" id="3_l0ssw"]
+[ext_resource type="Texture2D" uid="uid://2dtn6iggh2gs" path="res://cog.png" id="4_yd3r8"]
 [ext_resource type="StyleBox" uid="uid://cpor7q4pqgonk" path="res://panel_container.tres" id="5_3finx"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_se455"]
-load_path = "res://.godot/imported/placeholder_image.png-d981065933112fa65b36d444ebe22691.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ad7k2"]
-load_path = "res://.godot/imported/placeholder_image.png-d981065933112fa65b36d444ebe22691.ctex"
+[ext_resource type="Texture2D" uid="uid://dlk35a05jbpfx" path="res://face.png" id="5_yd3r8"]
 
 [node name="MinesweeperBoard" type="Control" unique_id=408746770]
 layout_mode = 3
@@ -55,10 +48,7 @@ alignment = 1
 custom_minimum_size = Vector2(120, 115)
 custom_maximum_size = Vector2(120, 115)
 layout_mode = 2
-theme_override_styles/normal = ExtResource("1_yd3r8")
-theme_override_styles/pressed = ExtResource("2_joxs4")
-theme_override_styles/hover = ExtResource("3_l0ssw")
-icon = SubResource("CompressedTexture2D_se455")
+icon = ExtResource("1_ad7k2")
 icon_alignment = 1
 expand_icon = true
 
@@ -79,10 +69,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(120, 115)
 custom_maximum_size = Vector2(120, 115)
 layout_mode = 2
-theme_override_styles/normal = ExtResource("1_yd3r8")
-theme_override_styles/pressed = ExtResource("2_joxs4")
-theme_override_styles/hover = ExtResource("3_l0ssw")
-icon = ExtResource("1_60qh5")
+icon = ExtResource("5_yd3r8")
 icon_alignment = 1
 expand_icon = true
 
@@ -103,10 +90,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(120, 115)
 custom_maximum_size = Vector2(120, 115)
 layout_mode = 2
-theme_override_styles/normal = ExtResource("1_yd3r8")
-theme_override_styles/pressed = ExtResource("2_joxs4")
-theme_override_styles/hover = ExtResource("3_l0ssw")
-icon = SubResource("CompressedTexture2D_ad7k2")
+icon = ExtResource("4_yd3r8")
 icon_alignment = 1
 expand_icon = true
 
