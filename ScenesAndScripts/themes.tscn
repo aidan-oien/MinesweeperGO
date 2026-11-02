@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4y56vw7wsqd0"]
 
-[ext_resource type="Texture2D" uid="uid://bg03lpv5todvh" path="res://smile.png" id="1_8x5ab"]
+[ext_resource type="Texture2D" uid="uid://bg03lpv5todvh" path="res://Assets/smile.png" id="1_8x5ab"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gc0em"]
 bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjpyqr8w0haky"]
 
-[ext_resource type="Texture2D" uid="uid://cbgcfsjja43vb" path="res://boardMapLocation.png" id="1_tkf0t"]
+[ext_resource type="Texture2D" uid="uid://cbgcfsjja43vb" path="res://Assets/boardMapLocation.png" id="1_tkf0t"]
 [ext_resource type="Material" uid="uid://cy6u15y7mqgvw" path="res://marker_material.tres" id="1_wqa5l"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_xmkr1"]

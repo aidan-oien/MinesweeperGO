@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ci1jmq4chmjar"]
 
-[ext_resource type="PackedScene" uid="uid://c1v7hepv754af" path="res://leaderboard_entry.tscn" id="1_3ilyb"]
+[ext_resource type="PackedScene" uid="uid://c1v7hepv754af" path="res://ScenesAndScripts/leaderboard_entry.tscn" id="1_3ilyb"]
 
 [node name="Leaderboard" type="Control" unique_id=663055580]
 layout_mode = 3

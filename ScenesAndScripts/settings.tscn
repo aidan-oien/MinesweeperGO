@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2eha7a4i22td"]
 
-[ext_resource type="Texture2D" uid="uid://2hidg63ngwu1" path="res://gear.png" id="1_nkug2"]
+[ext_resource type="Texture2D" uid="uid://2hidg63ngwu1" path="res://Assets/gear.png" id="1_nkug2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gc0em"]
 bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)

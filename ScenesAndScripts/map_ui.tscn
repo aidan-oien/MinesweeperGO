@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dt5ygslnv6e2d"]
 
-[ext_resource type="Texture2D" uid="uid://b10uqnffryyxx" path="res://placeholder_image.png" id="1_bgddt"]
+[ext_resource type="Texture2D" uid="uid://b10uqnffryyxx" path="res://Assets/placeholder_image.png" id="1_bgddt"]
 [ext_resource type="LabelSettings" uid="uid://recvuua2ip7p" path="res://map_label_settings.tres" id="2_a0m6g"]
-[ext_resource type="Texture2D" uid="uid://2dtn6iggh2gs" path="res://cog.png" id="3_4cch8"]
-[ext_resource type="Texture2D" uid="uid://c4s1bspcadnyr" path="res://nearbyPeople.png" id="3_bgddt"]
-[ext_resource type="Texture2D" uid="uid://ckj86x665ufem" path="res://leaderboard.png" id="4_3ny4w"]
+[ext_resource type="Texture2D" uid="uid://2dtn6iggh2gs" path="res://Assets/cog.png" id="3_4cch8"]
+[ext_resource type="Texture2D" uid="uid://c4s1bspcadnyr" path="res://Assets/nearbyPeople.png" id="3_bgddt"]
+[ext_resource type="Texture2D" uid="uid://ckj86x665ufem" path="res://Assets/leaderboard.png" id="4_3ny4w"]
 
 [node name="mapUI" type="Control" unique_id=2095448302]
 layout_mode = 3

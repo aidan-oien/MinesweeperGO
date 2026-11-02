@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://yeesqiwh5bkh"]
 
-[ext_resource type="ArrayMesh" uid="uid://c2svs882wg32o" path="res://3dDude.obj" id="1_c7s6e"]
-[ext_resource type="Script" uid="uid://b8y5va3a0o36t" path="res://map.gd" id="1_e0an3"]
-[ext_resource type="Texture2D" uid="uid://bdigqixwdd332" path="res://texture_dev_01.png" id="1_wijl4"]
-[ext_resource type="PackedScene" uid="uid://dt5ygslnv6e2d" path="res://map_ui.tscn" id="4_p5pve"]
-[ext_resource type="PackedScene" uid="uid://bjpyqr8w0haky" path="res://board_marker.tscn" id="5_urblq"]
+[ext_resource type="ArrayMesh" uid="uid://c2svs882wg32o" path="res://Assets/3dDude.obj" id="1_c7s6e"]
+[ext_resource type="Script" uid="uid://b8y5va3a0o36t" path="res://ScenesAndScripts/map.gd" id="1_e0an3"]
+[ext_resource type="Texture2D" uid="uid://bdigqixwdd332" path="res://Assets/texture_dev_01.png" id="1_wijl4"]
+[ext_resource type="PackedScene" uid="uid://dt5ygslnv6e2d" path="res://ScenesAndScripts/map_ui.tscn" id="4_p5pve"]
+[ext_resource type="PackedScene" uid="uid://bjpyqr8w0haky" path="res://ScenesAndScripts/board_marker.tscn" id="5_urblq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0an3"]
 albedo_texture = ExtResource("1_wijl4")

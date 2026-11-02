@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1v7hepv754af"]
 
-[ext_resource type="Texture2D" uid="uid://b10uqnffryyxx" path="res://placeholder_image.png" id="1_rqmqv"]
+[ext_resource type="Texture2D" uid="uid://b10uqnffryyxx" path="res://Assets/placeholder_image.png" id="1_rqmqv"]
 
 [node name="MarginContainer" type="MarginContainer" unique_id=1728507214]
 theme_override_constants/margin_left = 20

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4s1bspcadnyr"
-path="res://.godot/imported/nearbyPeople.png-81a94f7e614f52e0c131714b6954a977.ctex"
+uid="uid://2hidg63ngwu1"
+path="res://.godot/imported/gear.png-efdc5b345d356f8bfbdc749f755a770d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://nearbyPeople.png"
-dest_files=["res://.godot/imported/nearbyPeople.png-81a94f7e614f52e0c131714b6954a977.ctex"]
+source_file="res://Assets/gear.png"
+dest_files=["res://.godot/imported/gear.png-efdc5b345d356f8bfbdc749f755a770d.ctex"]
 
 [params]
 

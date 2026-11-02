@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://beydyx0ttlffk"]
 
-[ext_resource type="Texture2D" uid="uid://d0mc18ovw2frs" path="res://flag.png" id="1_ad7k2"]
-[ext_resource type="Script" uid="uid://2ms0h7mmbygt" path="res://GenerateBoard.gd" id="2_4h3n8"]
-[ext_resource type="Texture2D" uid="uid://2dtn6iggh2gs" path="res://cog.png" id="4_yd3r8"]
+[ext_resource type="Texture2D" uid="uid://d0mc18ovw2frs" path="res://Assets/flag.png" id="1_ad7k2"]
+[ext_resource type="Script" uid="uid://2ms0h7mmbygt" path="res://ScenesAndScripts/GenerateBoard.gd" id="2_4h3n8"]
+[ext_resource type="Texture2D" uid="uid://2dtn6iggh2gs" path="res://Assets/cog.png" id="4_yd3r8"]
 [ext_resource type="StyleBox" uid="uid://cpor7q4pqgonk" path="res://panel_container.tres" id="5_3finx"]
-[ext_resource type="Texture2D" uid="uid://dlk35a05jbpfx" path="res://face.png" id="5_yd3r8"]
+[ext_resource type="Texture2D" uid="uid://dlk35a05jbpfx" path="res://Assets/face.png" id="5_yd3r8"]
 
 [node name="MinesweeperBoard" type="Control" unique_id=408746770]
 layout_mode = 3
