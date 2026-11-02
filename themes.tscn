@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://b4y56vw7wsqd0"]
+
+[ext_resource type="Texture2D" uid="uid://bg03lpv5todvh" path="res://smile.png" id="1_8x5ab"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gc0em"]
+bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2hje"]
+bg_color = Color(0.5231203, 0.52312034, 0.5231202, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkug2"]
+bg_color = Color(0.52156866, 0.52156866, 0.52156866, 1)
+
+[node name="Settings" type="Control" unique_id=557893005]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=942183618]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1175605807]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gc0em")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1478697034]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1932169099]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Button" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=724770388]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "<<BACK
+"
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=213629134]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=900551043]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "THEMES"
+
+[node name="Button2" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2050223216]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_x2hje")
+text = "         CLASSIC"
+alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Button2" unique_id=394930357]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 132.0
+texture = ExtResource("1_8x5ab")
+
+[node name="Button3" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1879885526]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_nkug2")
+text = "  LIGHT"
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Button3" unique_id=895580781]
+layout_mode = 0
+offset_right = 133.0
+offset_bottom = 130.0
+
+[node name="Button4" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=939897926]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_nkug2")
+text = " DARK"
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Button4" unique_id=1807781702]
+layout_mode = 0
+offset_right = 133.0
+offset_bottom = 130.0
+color = Color(0.3854925, 0.38549247, 0.38549247, 1)
+
+[node name="Button5" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=761124141]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxFlat_nkug2")
+text = "            BLACK OLED"
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Button5" unique_id=2072307500]
+layout_mode = 0
+offset_right = 133.0
+offset_bottom = 130.0
+color = Color(0, 0, 0, 1)
