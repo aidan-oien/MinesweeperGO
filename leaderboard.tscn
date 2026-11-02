@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://ci1jmq4chmjar"]
+
+[ext_resource type="PackedScene" uid="uid://c1v7hepv754af" path="res://leaderboard_entry.tscn" id="1_3ilyb"]
+
+[node name="Leaderboard" type="Control" unique_id=663055580]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=745158967]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1476402552]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=508392351]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1662040000]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=1040404081]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Leaderboards"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=767606812]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=2133934251]
+layout_mode = 2
+
+[node name="ItemList" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=312087712]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList" unique_id=915839075]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=1728507214 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer2" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=631921205 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer3" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=1008458337 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer4" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=1060483300 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer5" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=2055800257 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer6" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=170297113 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer7" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=338629892 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer8" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=2088610945 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer9" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=642741483 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer10" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=661594437 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer11" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=418198871 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer12" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=715986519 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer13" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=1119823673 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer14" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=716046642 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer15" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=1898722815 instance=ExtResource("1_3ilyb")]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=354469455]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="Back Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer3" unique_id=796952558]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "<< Back"
