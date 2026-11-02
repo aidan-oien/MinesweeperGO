@@ -1,10 +1,17 @@
 [gd_scene format=3 uid="uid://cwiilrd1vjtux"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gc0em"]
-bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+[ext_resource type="Texture2D" uid="uid://canv5n8xhp7m0" path="res://Assets/checkbox_y.png" id="1_pqfjh"]
+[ext_resource type="Texture2D" uid="uid://ddsa1t5w5xu10" path="res://Assets/checkbox_n.png" id="2_8koxf"]
+
+[sub_resource type="Theme" id="Theme_hwc55"]
+CheckButton/icons/checked = ExtResource("1_pqfjh")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q45hi"]
 bg_color = Color(0.31862992, 0.6126405, 0.9385581, 1)
+
+[sub_resource type="Theme" id="Theme_fnwo5"]
+CheckButton/icons/checked = ExtResource("1_pqfjh")
+CheckButton/icons/unchecked = ExtResource("2_8koxf")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w2ea"]
 bg_color = Color(0.3779188, 0.3779189, 0.37791875, 1)
@@ -24,76 +31,111 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1175605807]
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=2122462688]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gc0em")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1478697034]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1733000283]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=125959735]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=1528388111]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Audio"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=669933376]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/MarginContainer3" unique_id=2011931742]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer3" unique_id=1096787150]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1932169099]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="Button" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=724770388]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 35
-text = "<<BACK
-"
-flat = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=213629134]
+[node name="ItemList" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer" unique_id=1348275390]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=900551043]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer/ItemList" unique_id=614348322]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "AUDIO"
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=614308749]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer/ItemList/VBoxContainer" unique_id=379100210]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "VOLUME"
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 50
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=358656009]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer/ItemList/VBoxContainer/MarginContainer" unique_id=272781979]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer/ItemList/VBoxContainer/MarginContainer/VBoxContainer" unique_id=614308749]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Volume"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer/ItemList/VBoxContainer/MarginContainer/VBoxContainer" unique_id=358656009]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_hwc55")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_q45hi")
 value = 67.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1584061702]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer/ItemList/VBoxContainer" unique_id=540391611]
+layout_mode = 2
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer/ItemList/VBoxContainer/MarginContainer2" unique_id=190169244]
 layout_mode = 2
 
-[node name="CheckButton" type="CheckButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=240153066]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer/ItemList/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=959888601]
 layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer/ItemList/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=240153066]
+layout_mode = 2
+theme = SubResource("Theme_fnwo5")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 flat = true
 alignment = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=968953263]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer/ItemList/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=968953263]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
 text = "Enable Theme Specific Sounds"
 
-[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=113098873]
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer/ItemList/VBoxContainer" unique_id=561376442]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer/ItemList/VBoxContainer/MarginContainer3" unique_id=1185925178]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer/ItemList/VBoxContainer/MarginContainer3/VBoxContainer" unique_id=113098873]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Override Theme Sounds"
 
-[node name="OptionButton" type="OptionButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1238337681]
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/MarginContainer3/MarginContainer/ItemList/VBoxContainer/MarginContainer3/VBoxContainer" unique_id=1238337681]
 layout_mode = 2
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_4w2ea")
 selected = 0
 item_count = 3
@@ -103,3 +145,27 @@ popup/item_1/text = "Classic"
 popup/item_1/id = 1
 popup/item_2/text = "more to come :D"
 popup/item_2/id = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1478697034]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1932169099]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=376656507]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="Back Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer4" unique_id=1148059751]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "<< Back"

@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://b2eha7a4i22td"]
 
-[ext_resource type="Texture2D" uid="uid://2hidg63ngwu1" path="res://Assets/gear.png" id="1_nkug2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gc0em"]
-bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+[ext_resource type="Texture2D" uid="uid://2dtn6iggh2gs" path="res://Assets/cog.png" id="1_pdo55"]
 
 [node name="Settings" type="Control" unique_id=557893005]
 layout_mode = 3
@@ -20,70 +17,105 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1175605807]
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=548276475]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gc0em")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1478697034]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1932169099]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=2110949099]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=434494397]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=141397370]
+layout_mode = 2
+texture = ExtResource("1_pdo55")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=831534243]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer" unique_id=1381766930]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Settings"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=44313071]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1165097092]
+layout_mode = 2
+
+[node name="ItemList" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1132540491]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList" unique_id=1445115698]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=251182194]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1932169099]
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer" unique_id=1911640829]
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Themes"
+alignment = 0
 
-[node name="Button" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=724770388]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=2001202287]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer2" unique_id=472091903]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Audio"
+alignment = 0
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=244862593]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer3" unique_id=378369819]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Account"
+alignment = 0
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=400789988]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="Back Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer3" unique_id=431338882]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 35
-text = "<<BACK
-"
-flat = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=434494397]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1203123156]
-custom_minimum_size = Vector2(90, 90)
-layout_mode = 2
-texture = ExtResource("1_nkug2")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1381766930]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "SETTINGS"
-
-[node name="Button2" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1182788101]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Themes"
-flat = true
-alignment = 0
-
-[node name="Button3" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1843513468]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Audio"
-flat = true
-alignment = 0
-
-[node name="Button4" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1662147281]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Account"
-flat = true
-alignment = 0
+theme_override_font_sizes/font_size = 50
+text = "<< Back"

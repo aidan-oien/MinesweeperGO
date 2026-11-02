@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ci1jmq4chmjar"]
 
 [ext_resource type="PackedScene" uid="uid://c1v7hepv754af" path="res://ScenesAndScripts/leaderboard_entry.tscn" id="1_3ilyb"]
+[ext_resource type="Texture2D" uid="uid://ckj86x665ufem" path="res://Assets/leaderboard.png" id="1_jn5a7"]
 
 [node name="Leaderboard" type="Control" unique_id=663055580]
 layout_mode = 3
@@ -35,7 +36,20 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=1040404081]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=1508279600]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1429409554]
+layout_mode = 2
+texture = ExtResource("1_jn5a7")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1593081802]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer" unique_id=1040404081]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Leaderboards"
