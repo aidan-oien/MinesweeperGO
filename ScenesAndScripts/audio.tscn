@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://canv5n8xhp7m0" path="res://Assets/checkbox_y.png" id="1_pqfjh"]
 [ext_resource type="Texture2D" uid="uid://ddsa1t5w5xu10" path="res://Assets/checkbox_n.png" id="2_8koxf"]
 [ext_resource type="Texture2D" uid="uid://dliej55w4j6hb" path="res://Assets/ssd_inset.png" id="4_8nt3v"]
+[ext_resource type="Texture2D" uid="uid://coia3e004l34w" path="res://Assets/back.png" id="6_qmqds"]
 
 [sub_resource type="Theme" id="Theme_hwc55"]
 CheckButton/icons/checked = ExtResource("1_pqfjh")
@@ -235,3 +236,14 @@ patch_margin_left = 1
 patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
+
+[node name="BackContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1760282578]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 8
+
+[node name="Back Button" type="TextureButton" parent="MarginContainer/VBoxContainer/BackContainer" unique_id=1107806672]
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("6_qmqds")
