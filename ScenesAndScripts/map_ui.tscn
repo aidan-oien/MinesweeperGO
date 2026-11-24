@@ -1,9 +1,22 @@
 [gd_scene format=3 uid="uid://dt5ygslnv6e2d"]
 
 [ext_resource type="Texture2D" uid="uid://b10uqnffryyxx" path="res://Assets/placeholder_image.png" id="1_bgddt"]
+[ext_resource type="Texture2D" uid="uid://bnor3e7g388x6" path="res://Assets/inset.png" id="2_5trew"]
+[ext_resource type="Texture2D" uid="uid://dp5x0xdplgk5w" path="res://Assets/bevel.png" id="2_7er47"]
 [ext_resource type="Texture2D" uid="uid://2dtn6iggh2gs" path="res://Assets/cog.png" id="3_4cch8"]
 [ext_resource type="Texture2D" uid="uid://c4s1bspcadnyr" path="res://Assets/nearbyPeople.png" id="3_bgddt"]
 [ext_resource type="Texture2D" uid="uid://ckj86x665ufem" path="res://Assets/leaderboard.png" id="4_3ny4w"]
+[ext_resource type="Texture2D" uid="uid://dliej55w4j6hb" path="res://Assets/ssd_inset.png" id="4_py8ng"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khxjx"]
+bg_color = Color(0, 0.19607843, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kn0d4"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Theme" id="Theme_e352i"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_khxjx")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_kn0d4")
 
 [node name="mapUI" type="Control" unique_id=2095448302]
 layout_mode = 3
@@ -19,79 +32,171 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 40.0
 grow_horizontal = 2
-theme_override_constants/margin_left = 75
-theme_override_constants/margin_top = 75
-theme_override_constants/margin_right = 75
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
 
-[node name="Panel" type="Panel" parent="top" unique_id=2072370251]
-propagate_maximum_size = true
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="top" unique_id=911034472]
+[node name="HBoxContainer" type="HBoxContainer" parent="top" unique_id=282121619]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="ColorRect" type="TextureRect" parent="top/HBoxContainer" unique_id=727333125]
+[node name="MarginContainer" type="MarginContainer" parent="top/HBoxContainer" unique_id=1517003280]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="top/HBoxContainer/MarginContainer" unique_id=1759264914]
+layout_mode = 2
+texture = ExtResource("2_7er47")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer3" type="MarginContainer" parent="top/HBoxContainer/MarginContainer" unique_id=1244744682]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="top/HBoxContainer/MarginContainer/MarginContainer3" unique_id=1008076797]
+layout_mode = 2
+texture = ExtResource("2_5trew")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="top/HBoxContainer/MarginContainer/MarginContainer3" unique_id=1224136979]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ColorRect" type="TextureRect" parent="top/HBoxContainer/MarginContainer/MarginContainer3/MarginContainer" unique_id=276414050]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("1_bgddt")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="top/HBoxContainer" unique_id=1733072299]
+[node name="MarginContainer2" type="MarginContainer" parent="top/HBoxContainer" unique_id=42366935]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="top/HBoxContainer/MarginContainer2" unique_id=1471451098]
+layout_mode = 2
+texture = ExtResource("2_7er47")
+region_rect = Rect2(4.4005814, 0, 43.59942, 48)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="top/HBoxContainer/MarginContainer2" unique_id=790900460]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="top/HBoxContainer/MarginContainer2/MarginContainer" unique_id=1733072299]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="top/HBoxContainer/VBoxContainer" unique_id=1800558593]
+[node name="HBoxContainer" type="HBoxContainer" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer" unique_id=1800558593]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="top/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1664404255]
+[node name="MarginContainer" type="MarginContainer" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1664404255]
 layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 12
 
-[node name="Label" type="Label" parent="top/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer" unique_id=375812114]
+[node name="Label" type="Label" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer" unique_id=375812114]
 layout_mode = 2
-theme_override_font_sizes/font_size = 56
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
 text = "xXx_SealLover_xXx"
 
-[node name="MarginContainer2" type="MarginContainer" parent="top/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=911031272]
+[node name="MarginContainer2" type="MarginContainer" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=49164468]
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 4
 
-[node name="Panel" type="Panel" parent="top/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=1441902947]
+[node name="ColorRect" type="ColorRect" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=2067825068]
 layout_mode = 2
+color = Color(0, 0, 0, 1)
 
-[node name="MarginContainer2" type="MarginContainer" parent="top/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=1069142878]
+[node name="NinePatchRect" type="NinePatchRect" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=1386630188]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
+texture = ExtResource("4_py8ng")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="top/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/MarginContainer2" unique_id=309662899]
+[node name="MarginContainer2" type="MarginContainer" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2" unique_id=638376472]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-theme_override_constants/separation = -10
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
-[node name="Label" type="Label" parent="top/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/MarginContainer2/VBoxContainer" unique_id=1025652553]
+[node name="VBoxContainer" type="VBoxContainer" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/MarginContainer2" unique_id=1597156994]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/MarginContainer2/VBoxContainer" unique_id=1352275684]
+layout_mode = 2
+theme_override_constants/margin_top = -12
+theme_override_constants/margin_bottom = -20
+
+[node name="Label" type="Label" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer" unique_id=1014261122]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_font_sizes/font_size = 8
 text = "LVL"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="top/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/MarginContainer2/VBoxContainer" unique_id=1145036211]
+[node name="MarginContainer2" type="MarginContainer" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/MarginContainer2/VBoxContainer" unique_id=710233303]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = -6
+theme_override_constants/margin_bottom = -10
+
+[node name="Label2" type="Label" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer2" unique_id=126475774]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
 text = "67"
 horizontal_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="top/HBoxContainer/VBoxContainer" unique_id=399024416]
-custom_minimum_size = Vector2(0, 50)
+[node name="MarginContainer2" type="MarginContainer" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer" unique_id=895715376]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer2" unique_id=2050605776]
+layout_mode = 2
+texture = ExtResource("4_py8ng")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer2" unique_id=1577431866]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="top/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer/MarginContainer2/MarginContainer" unique_id=1489115072]
+custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 size_flags_vertical = 10
+theme = SubResource("Theme_e352i")
 value = 75.0
 show_percentage = false
 
@@ -104,9 +209,9 @@ anchor_bottom = 1.0
 offset_top = -154.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="HSplitContainer" type="HBoxContainer" parent="bottom" unique_id=37935597]
 layout_mode = 2
@@ -118,7 +223,7 @@ size_flags_horizontal = 3
 theme_override_constants/margin_right = 20
 
 [node name="Button" type="Button" parent="bottom/HSplitContainer/MarginContainer" unique_id=332866898]
-custom_minimum_size = Vector2(0, 225)
+custom_minimum_size = Vector2(0, 64)
 propagate_maximum_size = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -126,24 +231,42 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 64
 text = "Play "
 
-[node name="VBoxContainer" type="VBoxContainer" parent="bottom/HSplitContainer" unique_id=1323852201]
+[node name="MarginContainer3" type="MarginContainer" parent="bottom/HSplitContainer" unique_id=1808819688]
 layout_mode = 2
-theme_override_constants/separation = 10
 
-[node name="spotpasses" type="TextureButton" parent="bottom/HSplitContainer/VBoxContainer" unique_id=1266119591]
-custom_minimum_size = Vector2(150, 150)
+[node name="NinePatchRect" type="NinePatchRect" parent="bottom/HSplitContainer/MarginContainer3" unique_id=1392472717]
+layout_mode = 2
+texture = ExtResource("2_7er47")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="bottom/HSplitContainer/MarginContainer3" unique_id=131760987]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bottom/HSplitContainer/MarginContainer3/MarginContainer2" unique_id=1323852201]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="spotpasses" type="TextureButton" parent="bottom/HSplitContainer/MarginContainer3/MarginContainer2/VBoxContainer" unique_id=1266119591]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture_normal = ExtResource("3_bgddt")
-stretch_mode = 0
+stretch_mode = 4
 
-[node name="leaderboard" type="TextureButton" parent="bottom/HSplitContainer/VBoxContainer" unique_id=800145789]
-custom_minimum_size = Vector2(150, 150)
+[node name="leaderboard" type="TextureButton" parent="bottom/HSplitContainer/MarginContainer3/MarginContainer2/VBoxContainer" unique_id=800145789]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture_normal = ExtResource("4_3ny4w")
-stretch_mode = 0
+stretch_mode = 6
 
-[node name="settings" type="TextureButton" parent="bottom/HSplitContainer/VBoxContainer" unique_id=212368044]
-custom_minimum_size = Vector2(150, 150)
+[node name="settings" type="TextureButton" parent="bottom/HSplitContainer/MarginContainer3/MarginContainer2/VBoxContainer" unique_id=212368044]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture_normal = ExtResource("3_4cch8")
-stretch_mode = 0
+stretch_mode = 4

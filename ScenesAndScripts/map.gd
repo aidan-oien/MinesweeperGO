@@ -10,7 +10,7 @@ func _input( event ):
 		print(event.relative.x)
 		camera_anchor.rotation.y -= event.relative.x / 200
 		camera_vel = event.relative.x
-		if camera_vel == 1.0 or camera_vel == -1.0:
+		if camera_vel <= 1.0 and camera_vel >= -1.0:
 			camera_vel = 0
 	
 	if event is InputEventScreenTouch:

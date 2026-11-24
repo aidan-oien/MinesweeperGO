@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg03lpv5todvh"
-path="res://.godot/imported/smile.png-955f8886eac9bc8f7bb7c5ecefcd0938.ctex"
+uid="uid://dliej55w4j6hb"
+path="res://.godot/imported/ssd_inset.png-6f0473bb4e3133e019e117ba5ac26575.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/smile.png"
-dest_files=["res://.godot/imported/smile.png-955f8886eac9bc8f7bb7c5ecefcd0938.ctex"]
+source_file="res://Assets/ssd_inset.png"
+dest_files=["res://.godot/imported/ssd_inset.png-6f0473bb4e3133e019e117ba5ac26575.ctex"]
 
 [params]
 

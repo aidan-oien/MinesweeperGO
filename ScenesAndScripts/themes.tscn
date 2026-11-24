@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://b4y56vw7wsqd0"]
 
-[ext_resource type="Texture2D" uid="uid://bg03lpv5todvh" path="res://Assets/smile.png" id="1_8x5ab"]
+[ext_resource type="Texture2D" uid="uid://dp5x0xdplgk5w" path="res://Assets/bevel.png" id="1_snhn1"]
+[ext_resource type="Texture2D" uid="uid://bnor3e7g388x6" path="res://Assets/inset.png" id="2_161mf"]
+[ext_resource type="Texture2D" uid="uid://dlk35a05jbpfx" path="res://Assets/face.png" id="3_feel6"]
+[ext_resource type="Texture2D" uid="uid://coia3e004l34w" path="res://Assets/back.png" id="4_32nml"]
 
 [node name="Settings" type="Control" unique_id=557893005]
 layout_mode = 3
@@ -17,197 +20,348 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="Panel" type="Panel" parent="MarginContainer" unique_id=740834685]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=2013050099]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_snhn1")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Components" type="VBoxContainer" parent="MarginContainer" unique_id=1932169099]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleContainer" type="MarginContainer" parent="MarginContainer/Components" unique_id=1047599351]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Components/TitleContainer" unique_id=527376943]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1932169099]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Components/TitleContainer/HBoxContainer" unique_id=177159534]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/margin_left = 4
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=444235016]
+[node name="Label2" type="Label" parent="MarginContainer/Components/TitleContainer/HBoxContainer/MarginContainer" unique_id=1096276868]
 layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=82719174]
-layout_mode = 2
-theme_override_font_sizes/font_size = 60
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
 text = "Themes"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=817649448]
+[node name="MarginContainer5" type="MarginContainer" parent="MarginContainer/Components" unique_id=762427127]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 50
+theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
 
-[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1229148318]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/Components/MarginContainer5" unique_id=639256787]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_161mf")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5" unique_id=73704554]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/Components/MarginContainer5/MarginContainer" unique_id=2075292199]
+layout_mode = 2
+color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+
+[node name="ItemList" type="ScrollContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer" unique_id=681827727]
 layout_mode = 2
 
-[node name="ItemList" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1749611140]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList" unique_id=336080551]
+[node name="List" type="VBoxContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList" unique_id=1838853751]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=725665769]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List" unique_id=99086076]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer" unique_id=1048682917]
-custom_minimum_size = Vector2(0, 130)
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer" unique_id=671176541]
 layout_mode = 2
-theme_override_font_sizes/font_size = 60
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_snhn1")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer" unique_id=591788906]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer/HBoxContainer" unique_id=1735528673]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer/HBoxContainer/MarginContainer2" unique_id=643367054]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_161mf")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer/HBoxContainer/MarginContainer2" unique_id=1623803806]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer/HBoxContainer/MarginContainer2/MarginContainer" unique_id=1402919641]
+layout_mode = 2
+texture = ExtResource("3_feel6")
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer/HBoxContainer" unique_id=1291475429]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+
+[node name="Label" type="Label" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer/HBoxContainer/MarginContainer" unique_id=1370299341]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Classic"
+
+[node name="Button2" type="Button" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer" unique_id=743546784]
+visible = false
+layout_mode = 2
 text = "
 "
 alignment = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer/Button2" unique_id=401246450]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer/Button2/HBoxContainer" unique_id=1770468813]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List" unique_id=547399651]
 layout_mode = 2
-texture = ExtResource("1_8x5ab")
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer/Button2/HBoxContainer" unique_id=1129570697]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer/Button2/HBoxContainer/MarginContainer" unique_id=2055990488]
-layout_mode = 2
-theme_override_font_sizes/font_size = 56
-text = "Classic"
-
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=285614820]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer2" unique_id=1666267696]
-custom_minimum_size = Vector2(0, 130)
-layout_mode = 2
-theme_override_font_sizes/font_size = 60
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer2/Button3" unique_id=366103966]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer2/Button3/HBoxContainer" unique_id=1473254402]
-custom_maximum_size = Vector2(134, 134)
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer2" unique_id=2064478553]
 layout_mode = 2
 size_flags_horizontal = 3
-offset_transform_enabled = true
+size_flags_vertical = 3
+texture = ExtResource("1_snhn1")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer2/Button3/HBoxContainer" unique_id=1172198438]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer2" unique_id=849504119]
 layout_mode = 2
-theme_override_constants/margin_left = 20
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer2/Button3/HBoxContainer/MarginContainer" unique_id=526196383]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer2/HBoxContainer" unique_id=85765500]
 layout_mode = 2
-theme_override_font_sizes/font_size = 56
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer2/HBoxContainer/MarginContainer2" unique_id=508720677]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_161mf")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer2/HBoxContainer/MarginContainer2" unique_id=191571158]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer2/HBoxContainer/MarginContainer2/MarginContainer" unique_id=1907777927]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer2/HBoxContainer" unique_id=874376368]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+
+[node name="Label" type="Label" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer2/HBoxContainer/MarginContainer" unique_id=923237252]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
 text = "Light"
 
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=552327887]
+[node name="Button2" type="Button" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer2" unique_id=2116874046]
+visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+text = "
+"
+alignment = 0
 
-[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer3" unique_id=247468343]
-custom_minimum_size = Vector2(0, 130)
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List" unique_id=379610914]
 layout_mode = 2
-theme_override_font_sizes/font_size = 60
-text = " "
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer3/Button4" unique_id=328776900]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer3/Button4/HBoxContainer" unique_id=1020406851]
-custom_maximum_size = Vector2(134, 134)
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer3" unique_id=1671986664]
 layout_mode = 2
 size_flags_horizontal = 3
-offset_transform_enabled = true
-color = Color(0.3854925, 0.38549247, 0.38549247, 1)
+size_flags_vertical = 3
+texture = ExtResource("1_snhn1")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer3/Button4/HBoxContainer" unique_id=740124217]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer3" unique_id=707627169]
 layout_mode = 2
-theme_override_constants/margin_left = 20
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer3/Button4/HBoxContainer/MarginContainer" unique_id=2145754830]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer3/HBoxContainer" unique_id=1755302005]
 layout_mode = 2
-theme_override_font_sizes/font_size = 56
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer3/HBoxContainer/MarginContainer2" unique_id=1694558465]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_161mf")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer3/HBoxContainer/MarginContainer2" unique_id=1621081407]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer3/HBoxContainer/MarginContainer2/MarginContainer" unique_id=829807963]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(0.446777, 0.44677705, 0.44677705, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer3/HBoxContainer" unique_id=1124348045]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+
+[node name="Label" type="Label" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer3/HBoxContainer/MarginContainer" unique_id=1674328175]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
 text = "Dark"
 
-[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer" unique_id=1186487867]
+[node name="Button2" type="Button" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer3" unique_id=2005556161]
+visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+text = "
+"
+alignment = 0
 
-[node name="Button5" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer4" unique_id=909235029]
-custom_minimum_size = Vector2(0, 130)
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List" unique_id=1697159774]
 layout_mode = 2
-theme_override_font_sizes/font_size = 46
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer4/Button5" unique_id=1833332500]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer4/Button5/HBoxContainer" unique_id=1965786473]
-custom_maximum_size = Vector2(134, 134)
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer4" unique_id=243774031]
 layout_mode = 2
 size_flags_horizontal = 3
-offset_transform_enabled = true
+size_flags_vertical = 3
+texture = ExtResource("1_snhn1")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer4" unique_id=1948160252]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer4/HBoxContainer" unique_id=1147331833]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer4/HBoxContainer/MarginContainer2" unique_id=1538400188]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_161mf")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer4/HBoxContainer/MarginContainer2" unique_id=1563735630]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer4/HBoxContainer/MarginContainer2/MarginContainer" unique_id=1847089001]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer4/Button5/HBoxContainer" unique_id=848941516]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer4/HBoxContainer" unique_id=1022218039]
 layout_mode = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/ItemList/VBoxContainer/MarginContainer4/Button5/HBoxContainer/MarginContainer" unique_id=1962362345]
+[node name="Label" type="Label" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer4/HBoxContainer/MarginContainer" unique_id=1109750605]
 layout_mode = 2
-theme_override_font_sizes/font_size = 56
-text = "Black OLED"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "OLED Black"
 
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=199827688]
+[node name="Button2" type="Button" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer4" unique_id=1632441120]
+visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 50
+text = "
+"
+alignment = 0
+
+[node name="BackContainer" type="MarginContainer" parent="MarginContainer/Components" unique_id=908494832]
+layout_mode = 2
+theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 0
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_bottom = 8
 
-[node name="Back Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer3" unique_id=1678235122]
+[node name="Back Button" type="TextureButton" parent="MarginContainer/Components/BackContainer" unique_id=284536156]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 50
-text = "<< Back"
+texture_normal = ExtResource("4_32nml")

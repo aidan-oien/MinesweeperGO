@@ -57,13 +57,13 @@ func _flat(fill: Color, border: Color, width: int) -> StyleBoxFlat:
 
 func _make_cell() -> Button:
 	var b := Button.new()
-	b.custom_minimum_size = Vector2(40, 67.5)
-	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	b.custom_minimum_size = Vector2(16, 16)
+	b.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	b.focus_mode = Control.FOCUS_NONE
 	b.add_theme_stylebox_override("normal", _hidden_style)
 	b.add_theme_stylebox_override("hover", _hidden_style)
 	b.add_theme_stylebox_override("pressed", _hidden_pressed_style)
-	b.add_theme_font_size_override("font_size", 44)
+	b.add_theme_font_size_override("font_size", 8)
 	return b
 
 func _demo_reveal() -> void:

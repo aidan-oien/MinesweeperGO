@@ -17,12 +17,12 @@ config/icon="res://Assets/icon.svg"
 
 [display]
 
-window/size/viewport_width=1080
-window/size/viewport_height=2400
-window/size/window_width_override=390
-window/size/window_height_override=870
-window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
+window/size/viewport_width=360
+window/size/viewport_height=640
+window/size/window_width_override=720
+window/size/window_height_override=1280
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
 
 [dotnet]
 
@@ -42,5 +42,6 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"

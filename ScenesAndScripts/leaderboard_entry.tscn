@@ -1,19 +1,55 @@
 [gd_scene format=3 uid="uid://c1v7hepv754af"]
 
+[ext_resource type="Texture2D" uid="uid://dp5x0xdplgk5w" path="res://Assets/bevel.png" id="1_bn5lm"]
 [ext_resource type="Texture2D" uid="uid://b10uqnffryyxx" path="res://Assets/placeholder_image.png" id="1_rqmqv"]
+[ext_resource type="Texture2D" uid="uid://bnor3e7g388x6" path="res://Assets/inset.png" id="2_rtijv"]
+[ext_resource type="Texture2D" uid="uid://dliej55w4j6hb" path="res://Assets/ssd_inset.png" id="4_mo2v4"]
 
 [node name="MarginContainer" type="MarginContainer" unique_id=1728507214]
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
 
-[node name="Panel" type="Panel" parent="." unique_id=1565365525]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=677588057]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_bn5lm")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=619602328]
 layout_mode = 2
 
-[node name="ColorRect" type="TextureRect" parent="HBoxContainer" unique_id=1964233115]
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer" unique_id=1172064056]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/MarginContainer3" unique_id=1791264401]
+layout_mode = 2
+texture = ExtResource("2_rtijv")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer3" unique_id=1106964055]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ColorRect" type="TextureRect" parent="HBoxContainer/MarginContainer3/MarginContainer" unique_id=1964233115]
 layout_mode = 2
 texture = ExtResource("1_rqmqv")
 expand_mode = 2
@@ -21,55 +57,78 @@ stretch_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=477199439]
 layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer" unique_id=60101864]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1128988884]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
 text = "xXx_SealLover_xXx"
 
 [node name="Label2" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1858960585]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.47397572, 0.47397572, 0.47397572, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 8
 text = "117 boards cleared"
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer" unique_id=1903396225]
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer" unique_id=182885316]
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="Panel" type="Panel" parent="HBoxContainer/MarginContainer2" unique_id=437577998]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer2" unique_id=1908670254]
 layout_mode = 2
+color = Color(0, 0, 0, 1)
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/MarginContainer2" unique_id=1553000873]
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/MarginContainer2" unique_id=661126944]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+texture = ExtResource("4_mo2v4")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/MarginContainer2" unique_id=2078657373]
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/MarginContainer2" unique_id=1193970882]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-theme_override_constants/separation = -10
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer2/MarginContainer2/VBoxContainer" unique_id=161746853]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/MarginContainer2" unique_id=951416446]
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer2/MarginContainer2/VBoxContainer" unique_id=1951714549]
+layout_mode = 2
+theme_override_constants/margin_bottom = -20
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer" unique_id=870380068]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
 text = "LVL"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="HBoxContainer/MarginContainer2/MarginContainer2/VBoxContainer" unique_id=1877623693]
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/MarginContainer2/MarginContainer2/VBoxContainer" unique_id=1803522893]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_constants/margin_bottom = -10
+
+[node name="Label2" type="Label" parent="HBoxContainer/MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer2" unique_id=781847620]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
 text = "67"
 horizontal_alignment = 1
