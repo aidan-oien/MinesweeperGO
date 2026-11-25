@@ -12,6 +12,8 @@ const NUM_COLORS : Dictionary = {
 	8: Color("808080"),
 }
 
+static var flagmode : bool = false
+
 var timer : Timer
 var label : Label
 
@@ -22,8 +24,6 @@ var isMine : bool = false
 var revealed : bool = false
 var flagged : bool = false
 var held : bool = false
-
-
 
 signal cell_pressed
 signal cell_held
@@ -36,6 +36,7 @@ func _init( xPos : int, yPos : int ):
 	
 	self.pressed.connect( _on_pressed )
 	self.button_down.connect( _on_button_down )
+	self.mouse_exited.connect( _on_mouse_exited )
 	
 	timer = Timer.new()
 	timer.timeout.connect(_on_held)
@@ -50,9 +51,18 @@ func _init( xPos : int, yPos : int ):
 	label.add_theme_font_size_override("font_size", 15)
 	add_child(label)
 
+func set_flagmode( newFlagmode : bool ):
+	flagmode = newFlagmode
+
+func update():
+	if revealed == false:
+		if !flagmode:
+			set_texture( "res://Assets/cell.png", "res://Assets/cell_pressed.png" )
+		else:
+			set_texture( "res://Assets/cell_flagmode.png", "res://Assets/cell_pressed.png" )
+
 func reveal():
 	if flagged:
-		pass
 		return
 	if isMine: 
 		set_texture( "res://Assets/cell_mine_hit.png", "res://Assets/cell_mine_hit.png" )
@@ -65,20 +75,27 @@ func reveal():
 			label.text = str(number)
 	
 func flag():
-	if !flagged:
-		set_texture( "res://Assets/cell_flag.png", "res://Assets/cell_flag_pressed.png" )
-	else:
-		set_texture( "res://Assets/cell.png", "res://Assets/cell_pressed.png" )
-	flagged = !flagged
+	if !revealed:
+		if !flagged:
+			set_texture( "res://Assets/cell_flag.png", "res://Assets/cell_flag_pressed.png" )
+		else:
+			if !flagmode:
+				set_texture( "res://Assets/cell.png", "res://Assets/cell_pressed.png" )
+			else:
+				set_texture( "res://Assets/cell_flagmode.png", "res://Assets/cell_pressed.png" )
+		flagged = !flagged
 
 func _on_button_down() -> void:
-	timer.wait_time = 0.5
+	timer.wait_time = 0.4
 	timer.start()
 
 func _on_held():
 	timer.stop()
 	held = true
 	cell_held.emit()
+
+func _on_mouse_exited():
+	timer.stop()
 
 func _on_pressed() -> void:
 	if !held:

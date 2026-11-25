@@ -209,3 +209,5 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture_normal = ExtResource("4_yd3r8")
 stretch_mode = 4
+
+[connection signal="pressed" from="TopBar/MarginContainer/MarginContainer12/HBoxContainer/FlagButton" to="CenterContainer/MarginContainer/MarginContainer/MarginContainer/Board" method="_on_flag_button_pressed"]
