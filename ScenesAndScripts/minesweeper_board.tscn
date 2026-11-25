@@ -8,6 +8,7 @@
 [ext_resource type="StyleBox" uid="uid://cpor7q4pqgonk" path="res://panel_container.tres" id="5_3finx"]
 [ext_resource type="Texture2D" uid="uid://dliej55w4j6hb" path="res://Assets/ssd_inset.png" id="5_nx0e2"]
 [ext_resource type="Texture2D" uid="uid://dlk35a05jbpfx" path="res://Assets/face.png" id="5_yd3r8"]
+[ext_resource type="Theme" uid="uid://dsy6ymtcb8td" path="res://minesweeperGO_theme.tres" id="6_hrb5l"]
 
 [node name="MinesweeperBoard" type="Control" unique_id=408746770]
 layout_mode = 3
@@ -127,7 +128,7 @@ layout_mode = 2
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="SettingsButton3" type="TextureButton" parent="TopBar/MarginContainer/MarginContainer12/HBoxContainer" unique_id=1697292684]
+[node name="FlagButton" type="TextureButton" parent="TopBar/MarginContainer/MarginContainer12/HBoxContainer" unique_id=1697292684]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture_normal = ExtResource("1_ad7k2")
@@ -148,8 +149,11 @@ theme_override_constants/margin_right = 8
 
 [node name="MineLabel" type="Label" parent="TopBar/MarginContainer/MarginContainer12/HBoxContainer/MarginContainer2/MarginContainer" unique_id=10418857]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 1)
+theme = ExtResource("6_hrb5l")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 20
 text = "001"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -162,7 +166,7 @@ patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="SettingsButton2" type="TextureButton" parent="TopBar/MarginContainer/MarginContainer12/HBoxContainer" unique_id=666551719]
+[node name="FaceButton" type="TextureButton" parent="TopBar/MarginContainer/MarginContainer12/HBoxContainer" unique_id=666551719]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture_normal = ExtResource("5_yd3r8")
@@ -183,8 +187,11 @@ theme_override_constants/margin_right = 8
 
 [node name="TimerLabel" type="Label" parent="TopBar/MarginContainer/MarginContainer12/HBoxContainer/MarginContainer/MarginContainer" unique_id=105353119]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 1)
+theme = ExtResource("6_hrb5l")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 20
 text = "000"
 horizontal_alignment = 1
 vertical_alignment = 1

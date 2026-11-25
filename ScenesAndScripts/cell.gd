@@ -1,7 +1,19 @@
 class_name Cell
 extends TextureButton
 
+const NUM_COLORS := {
+	1: Color("0000ff"),
+	2: Color("008000"),
+	3: Color("ff0000"),
+	4: Color("000080"),
+	5: Color("800000"),
+	6: Color("008080"),
+	7: Color("000000"),
+	8: Color("808080"),
+}
+
 var timer : Timer
+var label : Label
 
 var x : int = -1
 var y : int = -1
@@ -11,7 +23,7 @@ var revealed : bool = false
 var flagged : bool = false
 var held : bool = false
 
-var label : Label = Label.new()
+
 
 signal cell_pressed
 signal cell_held
@@ -25,6 +37,13 @@ func _init( xPos : int, yPos : int ):
 	timer = Timer.new()
 	timer.timeout.connect(_on_held)
 	add_child(timer)
+	label = Label.new()
+	label.theme = load("res://minesweeperGO_theme.tres")
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.size = Vector2( 20.0, 20.0 )
+	label.position = Vector2( 0.0, 0.0 )
+	label.add_theme_font_size_override("font_size", 15)
 	add_child(label)
 
 func reveal():
@@ -37,6 +56,7 @@ func reveal():
 	if !revealed:
 		set_texture( "res://Assets/cell_revealed.png", "res://Assets/cell_revealed.png" )
 		if number != 0:
+			label.add_theme_color_override("font_color", NUM_COLORS.get(number) )
 			label.text = str(number)
 	
 func flag():

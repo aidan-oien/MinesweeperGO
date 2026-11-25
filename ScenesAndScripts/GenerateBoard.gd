@@ -1,15 +1,8 @@
 extends GridContainer
 
-const NUM_COLORS := {
-	1: Color("0000ff"),
-	2: Color("008000"),
-	3: Color("ff0000"),
-	4: Color("000080"),
-	5: Color("800000"),
-	6: Color("008080"),
-	7: Color("000000"),
-	8: Color("808080"),
-}
+@onready var flag_button: TextureButton = $"../../../../../TopBar/MarginContainer/MarginContainer12/HBoxContainer/FlagButton"
+@onready var face_button: TextureButton = $"../../../../../TopBar/MarginContainer/MarginContainer12/HBoxContainer/FaceButton"
+@onready var settings_button: TextureButton = $"../../../../../TopBar/MarginContainer/MarginContainer12/HBoxContainer/SettingsButton"
 
 var COLS := 16
 var ROWS := 30
@@ -45,11 +38,12 @@ func _ready() -> void:
 				continue
 			board.get( Vector2i( num_x, num_y ) ).number += 1
 	
-	for i in COLS * ROWS:
-		var x : int = i % COLS
-		var y : int = i / COLS
-		var cell : Cell = board.get( Vector2i( x, y ) )
-		cell.reveal()
+	# reveal all
+	#for i in COLS * ROWS:
+		#var x : int = i % COLS
+		#var y : int = i / COLS
+		#var cell : Cell = board.get( Vector2i( x, y ) )
+		#cell.reveal()
 
 func _make_cell( x : int, y : int ) -> Cell:
 	var cell : Cell = Cell.new( x, y )
