@@ -18,10 +18,6 @@ const NUM_COLORS := {
 	8: Color("808080"),
 }
 
-var _hidden_style: StyleBoxTexture
-var _hidden_pressed_style: StyleBoxFlat
-var _revealed_style: StyleBoxFlat
-
 var board : Dictionary[ Vector2i, Cell ]
 
 func _ready() -> void:
@@ -31,32 +27,6 @@ func _ready() -> void:
 		board.get_or_add( Vector2i(), cell )
 		add_child( cell )
 
-func _build_styles() -> void:
-	# Raised bevel: white top/left, gray bottom/right
-	var img := Image.create(8, 8, false, Image.FORMAT_RGBA8)
-	img.fill(COLOR_FACE)
-	for i in 8:
-		for t in 2:
-			img.set_pixel(i, t, COLOR_LIGHT)          # top
-			img.set_pixel(t, i, COLOR_LIGHT)          # left
-	for i in 8:
-		for t in 2:
-			img.set_pixel(i, 7 - t, COLOR_SHADOW)     # bottom
-			img.set_pixel(7 - t, i, COLOR_SHADOW)     # right
-	_hidden_style = StyleBoxTexture.new()
-	_hidden_style.texture = ImageTexture.create_from_image(img)
-	_hidden_style.set_texture_margin_all(2)
-
-	_hidden_pressed_style = _flat(COLOR_FACE, COLOR_SHADOW, 1)
-	_revealed_style = _flat(COLOR_FACE, COLOR_SHADOW, 1)
-
-func _flat(fill: Color, border: Color, width: int) -> StyleBoxFlat:
-	var s := StyleBoxFlat.new()
-	s.bg_color = fill
-	s.border_color = border
-	s.set_border_width_all(width)
-	return s
-
 func _make_cell( x : int, y : int ) -> Cell:
 	var b : Cell = Cell.new( x, y )
 	b.cell_pressed.connect( update.bind( b, 0 ) )
@@ -65,34 +35,3 @@ func _make_cell( x : int, y : int ) -> Cell:
 
 func update( cell: Cell, isHeld : bool ):
 	print( str(cell.x) + " " + str(cell.y) + " " + str(isHeld) )
-
-#func _make_cell() -> Button:
-	#var b := Button.new()
-	#b.custom_minimum_size = Vector2(16, 16)
-	#b.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	#b.focus_mode = Control.FOCUS_NONE
-	#b.add_theme_stylebox_override("normal", _hidden_style)
-	#b.add_theme_stylebox_override("hover", _hidden_style)
-	#b.add_theme_stylebox_override("pressed", _hidden_pressed_style)
-	#b.add_theme_font_size_override("font_size", 8)
-	#return b
-
-func _demo_reveal() -> void:
-	var patch := [
-		[1, 1, 1],
-		[2, 0, 1],
-		[1, 0, 1],
-		[2, 1, 1],
-	]
-	var start_col := 6
-	var start_row := 9
-	for r in patch.size():
-		for c in patch[r].size():
-			var cell: Button = get_child((start_row + r) * COLS + start_col + c)
-			var n: int = patch[r][c]
-			cell.add_theme_stylebox_override("normal", _revealed_style)
-			cell.add_theme_stylebox_override("hover", _revealed_style)
-			if n > 0:
-				cell.text = str(n)
-				cell.add_theme_color_override("font_color", NUM_COLORS[n])
-				cell.add_theme_color_override("font_disabled_color", NUM_COLORS[n])
