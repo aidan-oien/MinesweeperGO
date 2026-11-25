@@ -26,12 +26,10 @@ var board : Dictionary[ Vector2i, Cell ]
 
 func _ready() -> void:
 	columns = COLS
-	#_build_styles()
 	for i in COLS * ROWS:
 		var cell : Cell = _make_cell( i % COLS , i / COLS )
 		board.get_or_add( Vector2i(), cell )
 		add_child( cell )
-	#_demo_reveal()
 
 func _build_styles() -> void:
 	# Raised bevel: white top/left, gray bottom/right
@@ -61,11 +59,12 @@ func _flat(fill: Color, border: Color, width: int) -> StyleBoxFlat:
 
 func _make_cell( x : int, y : int ) -> Cell:
 	var b : Cell = Cell.new( x, y )
-	b.location.connect( update.bind( x, y ) )
+	b.cell_pressed.connect( update.bind( b, 0 ) )
+	b.cell_held.connect( update.bind( b, 1 ) )
 	return b
 
-func update( x : int, y : int ):
-	print( str(x) + " " + str(y) )
+func update( cell: Cell, isHeld : bool ):
+	print( str(cell.x) + " " + str(cell.y) + " " + str(isHeld) )
 
 #func _make_cell() -> Button:
 	#var b := Button.new()
