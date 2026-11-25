@@ -56,6 +56,20 @@ func _make_cell( x : int, y : int ) -> Cell:
 func cell_update( cell: Cell, isHeld : bool ): 
 	print( str(cell.x) + " " + str(cell.y) + " isMine?=" + str(cell.isMine) + " Number=" + str(cell.number) )
 	
+	if cell.number > 0 and cell.revealed:
+		var flags : int
+		for i in 9:
+			var num_x : int = i % 3 + cell.x - 1
+			var num_y : int = i / 3 + cell.y - 1
+			if num_x >= COLS or num_x < 0 or num_y >= ROWS or num_y < 0:
+				continue
+			if num_x == cell.x and num_y == cell.y:
+				continue
+			if board.get( Vector2i( num_x, num_y ) ).flagged:
+				flags += 1
+		if flags == cell.number:
+			open_area( cell )
+	
 	if flagmode:
 		isHeld = !isHeld
 	
@@ -77,7 +91,7 @@ func open_area( cell : Cell ):
 		if num_x == cell.x and num_y == cell.y:
 			continue
 		var nextCell : Cell = board.get( Vector2i( num_x, num_y ) )
-		if nextCell.revealed:
+		if nextCell.revealed or nextCell.flagged:
 			continue
 		nextCell.reveal()
 		if nextCell.number == 0:

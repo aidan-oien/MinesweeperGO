@@ -55,7 +55,7 @@ func set_flagmode( newFlagmode : bool ):
 	flagmode = newFlagmode
 
 func update():
-	if revealed == false:
+	if !revealed and !flagged:
 		if !flagmode:
 			set_texture( "res://Assets/cell.png", "res://Assets/cell_pressed.png" )
 		else:
@@ -64,15 +64,15 @@ func update():
 func reveal():
 	if flagged:
 		return
-	if isMine: 
-		set_texture( "res://Assets/cell_mine_hit.png", "res://Assets/cell_mine_hit.png" )
-		return
 	if !revealed:
 		revealed = true
 		set_texture( "res://Assets/cell_revealed.png", "res://Assets/cell_revealed.png" )
-		if number != 0:
+		if number != 0 and !isMine:
 			label.add_theme_color_override("font_color", NUM_COLORS.get(number) )
 			label.text = str(number)
+	if isMine: 
+		set_texture( "res://Assets/cell_mine_hit.png", "res://Assets/cell_mine_hit.png" )
+		return
 	
 func flag():
 	if !revealed:
