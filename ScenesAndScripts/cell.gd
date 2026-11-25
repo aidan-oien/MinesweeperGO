@@ -5,11 +5,13 @@ var timer : Timer
 
 var x : int = -1
 var y : int = -1
-var number : int = 2
+var number : int = 0
 var isMine : bool = false
 var revealed : bool = false
 var flagged : bool = false
 var held : bool = false
+
+var label : Label = Label.new()
 
 signal cell_pressed
 signal cell_held
@@ -23,14 +25,19 @@ func _init( xPos : int, yPos : int ):
 	timer = Timer.new()
 	timer.timeout.connect(_on_held)
 	add_child(timer)
+	add_child(label)
 
 func reveal():
 	if flagged:
 		pass
+		return
 	if isMine: 
 		set_texture( "res://Assets/cell_mine_hit.png", "res://Assets/cell_mine_hit.png" )
+		return
 	if !revealed:
 		set_texture( "res://Assets/cell_revealed.png", "res://Assets/cell_revealed.png" )
+		if number != 0:
+			label.text = str(number)
 	
 func flag():
 	if !flagged:
