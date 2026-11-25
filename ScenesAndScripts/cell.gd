@@ -1,7 +1,7 @@
 class_name Cell
 extends TextureButton
 
-const NUM_COLORS := {
+const NUM_COLORS : Dictionary = {
 	1: Color("0000ff"),
 	2: Color("008000"),
 	3: Color("ff0000"),
@@ -31,12 +31,16 @@ signal cell_held
 func _init( xPos : int, yPos : int ):
 	x = xPos
 	y = yPos
+	
 	set_texture( "res://Assets/cell.png", "res://Assets/cell_pressed.png" )
+	
 	self.pressed.connect( _on_pressed )
 	self.button_down.connect( _on_button_down )
+	
 	timer = Timer.new()
 	timer.timeout.connect(_on_held)
 	add_child(timer)
+	
 	label = Label.new()
 	label.theme = load("res://minesweeperGO_theme.tres")
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -54,6 +58,7 @@ func reveal():
 		set_texture( "res://Assets/cell_mine_hit.png", "res://Assets/cell_mine_hit.png" )
 		return
 	if !revealed:
+		revealed = true
 		set_texture( "res://Assets/cell_revealed.png", "res://Assets/cell_revealed.png" )
 		if number != 0:
 			label.add_theme_color_override("font_color", NUM_COLORS.get(number) )
@@ -81,7 +86,6 @@ func _on_pressed() -> void:
 		cell_pressed.emit()
 	else:
 		held = false
-		
 
 func set_texture( normalTexture : String, pressedTexture : String ):
 	var normal : CompressedTexture2D = load( normalTexture )

@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://5vyqomxb1ss" path="res://Assets/cell.png" id="1_g1g1e"]
 [ext_resource type="Texture2D" uid="uid://0evd2c3lhs71" path="res://Assets/cell_pressed.png" id="2_83pyw"]
 [ext_resource type="Script" uid="uid://dl8r4o2mk5g6y" path="res://ScenesAndScripts/cell.gd" id="3_8yn7e"]
-[ext_resource type="Theme" uid="uid://dsy6ymtcb8td" path="res://minesweeperGO_theme.tres" id="4_8yn7e"]
 
 [node name="Control" type="TextureButton" unique_id=1252948890]
 offset_right = 20.0
@@ -13,16 +12,5 @@ size_flags_vertical = 4
 texture_normal = ExtResource("1_g1g1e")
 texture_pressed = ExtResource("2_83pyw")
 script = ExtResource("3_8yn7e")
-
-[node name="Label" type="Label" parent="." unique_id=1785987434]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_8yn7e")
-theme_override_font_sizes/font_size = 14
-text = "2"
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -9,6 +9,7 @@ var ROWS := 30
 var MINES : int = 99
 var rng : RandomNumberGenerator
 var board : Dictionary[ Vector2i, Cell ]
+var queue : Array
 
 func _ready() -> void:
 	rng = RandomNumberGenerator.new()
@@ -54,3 +55,22 @@ func _make_cell( x : int, y : int ) -> Cell:
 func update( cell: Cell, isHeld : bool ):
 	print( str(cell.x) + " " + str(cell.y) + " isMine?=" + str(cell.isMine) + " Number=" + str(cell.number) )
 	cell.reveal()
+	if cell.isMine:
+		pass # end game
+	if cell.number == 0:
+		open_area( cell )
+
+func open_area( cell : Cell ):
+	for i in 9:
+		var num_x : int = i % 3 + cell.x - 1
+		var num_y : int = i / 3 + cell.y - 1
+		if num_x >= COLS or num_x < 0 or num_y >= ROWS or num_y < 0:
+			continue
+		if num_x == cell.x and num_y == cell.y:
+			continue
+		var nextCell : Cell = board.get( Vector2i( num_x, num_y ) )
+		if nextCell.revealed:
+			continue
+		nextCell.reveal()
+		if nextCell.number == 0:
+			open_area( nextCell )
