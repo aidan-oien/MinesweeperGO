@@ -2,6 +2,7 @@ class_name Cell
 extends TextureButton
 
 const NUM_COLORS : Dictionary = {
+	0: Color("ffffff"),
 	1: Color("0000ff"),
 	2: Color("008000"),
 	3: Color("ff0000"),
@@ -13,6 +14,11 @@ const NUM_COLORS : Dictionary = {
 }
 
 static var flagmode : bool = false
+static var dragged : bool = false
+static var held : bool = false
+static var firstMine : bool = true
+
+#var timer : Timer
 
 var timer : Timer
 var label : Label
@@ -23,10 +29,10 @@ var number : int = 0
 var isMine : bool = false
 var revealed : bool = false
 var flagged : bool = false
-var held : bool = false
 
 signal cell_pressed
 signal cell_held
+signal mine_revealed
 
 func _init( xPos : int, yPos : int ):
 	x = xPos
@@ -47,8 +53,8 @@ func _init( xPos : int, yPos : int ):
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.size = Vector2( 20.0, 20.0 )
-	label.position = Vector2( 0.0, 0.0 )
-	label.add_theme_font_size_override("font_size", 15)
+	label.position = Vector2( 0.5, -1.0 )
+	label.add_theme_font_size_override("font_size", 16)
 	add_child(label)
 
 func set_flagmode( newFlagmode : bool ):
@@ -59,7 +65,7 @@ func update():
 		if !flagmode:
 			set_texture( "res://Assets/cell.png", "res://Assets/cell_pressed.png" )
 		else:
-			set_texture( "res://Assets/cell_flagmode.png", "res://Assets/cell_pressed.png" )
+			set_texture( "res://Assets/cell_flagmode.png", "res://Assets/cell_flagmode_pressed.png" )
 
 func reveal():
 	if flagged:
@@ -71,8 +77,13 @@ func reveal():
 			label.add_theme_color_override("font_color", NUM_COLORS.get(number) )
 			label.text = str(number)
 	if isMine: 
-		set_texture( "res://Assets/cell_mine_hit.png", "res://Assets/cell_mine_hit.png" )
-		return
+		if firstMine:
+			set_texture( "res://Assets/cell_mine_hit.png", "res://Assets/cell_mine_hit.png" )
+			firstMine = false
+			mine_revealed.emit()
+		else:
+			if !flagged:
+				set_texture( "res://Assets/cell_mine.png", "res://Assets/cell_mine.png" )
 	
 func flag():
 	if !revealed:
@@ -82,30 +93,41 @@ func flag():
 			if !flagmode:
 				set_texture( "res://Assets/cell.png", "res://Assets/cell_pressed.png" )
 			else:
-				set_texture( "res://Assets/cell_flagmode.png", "res://Assets/cell_pressed.png" )
+				set_texture( "res://Assets/cell_flagmode.png", "res://Assets/cell_flagmode_pressed.png" )
 		flagged = !flagged
 
 func _on_button_down() -> void:
 	timer.wait_time = 0.4
 	timer.start()
+	label.position = Vector2( 1.5, 0.0 )
 
-func _on_held():
+func _on_held() -> void:
 	timer.stop()
 	held = true
 	cell_held.emit()
 
-func _on_mouse_exited():
+func _on_mouse_exited() -> void:
+	label.position = Vector2( 0.5, -1.0 )
 	timer.stop()
 
 func _on_pressed() -> void:
-	if !held:
-		timer.stop()
-		cell_pressed.emit()
+	label.position = Vector2( 0.5, -1.0 )
+	if !dragged:
+		if !held:
+			timer.stop()
+			cell_pressed.emit()
+		else:
+			held = false
 	else:
-		held = false
+		dragged = false
 
 func set_texture( normalTexture : String, pressedTexture : String ):
 	var normal : CompressedTexture2D = load( normalTexture )
 	var press : CompressedTexture2D = load( pressedTexture )
 	self.texture_normal = normal
 	self.texture_pressed = press
+
+#static func dragging():
+	#timer.stop()
+	#held = false
+	#dragged = true
