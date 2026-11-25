@@ -22,12 +22,16 @@ var _hidden_style: StyleBoxTexture
 var _hidden_pressed_style: StyleBoxFlat
 var _revealed_style: StyleBoxFlat
 
+var board : Dictionary[ Vector2i, Cell ]
+
 func _ready() -> void:
 	columns = COLS
-	_build_styles()
+	#_build_styles()
 	for i in COLS * ROWS:
-		add_child(_make_cell())
-	_demo_reveal()
+		var cell : Cell = _make_cell( i % COLS , i / COLS )
+		board.get_or_add( Vector2i(), cell )
+		add_child( cell )
+	#_demo_reveal()
 
 func _build_styles() -> void:
 	# Raised bevel: white top/left, gray bottom/right
@@ -55,16 +59,24 @@ func _flat(fill: Color, border: Color, width: int) -> StyleBoxFlat:
 	s.set_border_width_all(width)
 	return s
 
-func _make_cell() -> Button:
-	var b := Button.new()
-	b.custom_minimum_size = Vector2(16, 16)
-	b.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	b.focus_mode = Control.FOCUS_NONE
-	b.add_theme_stylebox_override("normal", _hidden_style)
-	b.add_theme_stylebox_override("hover", _hidden_style)
-	b.add_theme_stylebox_override("pressed", _hidden_pressed_style)
-	b.add_theme_font_size_override("font_size", 8)
+func _make_cell( x : int, y : int ) -> Cell:
+	var b : Cell = Cell.new( x, y )
+	b.location.connect( update.bind( x, y ) )
 	return b
+
+func update( x : int, y : int ):
+	print( str(x) + " " + str(y) )
+
+#func _make_cell() -> Button:
+	#var b := Button.new()
+	#b.custom_minimum_size = Vector2(16, 16)
+	#b.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	#b.focus_mode = Control.FOCUS_NONE
+	#b.add_theme_stylebox_override("normal", _hidden_style)
+	#b.add_theme_stylebox_override("hover", _hidden_style)
+	#b.add_theme_stylebox_override("pressed", _hidden_pressed_style)
+	#b.add_theme_font_size_override("font_size", 8)
+	#return b
 
 func _demo_reveal() -> void:
 	var patch := [

@@ -7,15 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://dliej55w4j6hb" path="res://Assets/ssd_inset.png" id="5_r2xaa"]
 [ext_resource type="Texture2D" uid="uid://coia3e004l34w" path="res://Assets/back.png" id="6_o4dpx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khxjx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4dpx"]
 bg_color = Color(0, 0.19607843, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kn0d4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khxjx"]
 bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="Theme" id="Theme_o4dpx"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_khxjx")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_kn0d4")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_o4dpx")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_khxjx")
 
 [node name="Profile" type="Control" unique_id=1379348044]
 layout_mode = 3

@@ -1,3 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://dsy6ymtcb8td"]
 
+[ext_resource type="FontFile" uid="uid://c6jit24pl6evb" path="res://Assets/BigBlueTerm437NerdFontMono-Regular.ttf" id="1_6lxwn"]
+
 [resource]
+default_font = ExtResource("1_6lxwn")

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c4kovoioxbd3r"]
+
+[ext_resource type="Texture2D" uid="uid://5vyqomxb1ss" path="res://Assets/cell.png" id="1_g1g1e"]
+[ext_resource type="Texture2D" uid="uid://0evd2c3lhs71" path="res://Assets/cell_pressed.png" id="2_83pyw"]
+[ext_resource type="Script" uid="uid://dl8r4o2mk5g6y" path="res://ScenesAndScripts/cell.gd" id="3_8yn7e"]
+
+[node name="Control" type="TextureButton" unique_id=1252948890]
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_g1g1e")
+texture_pressed = ExtResource("2_83pyw")
+script = ExtResource("3_8yn7e")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

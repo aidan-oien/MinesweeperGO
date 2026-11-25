@@ -18,14 +18,65 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=276498774]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.7529412, 0.7529412, 0.7529412, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1735603659]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer" unique_id=1013484103]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/MarginContainer" unique_id=342314237]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_4oei2")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer" unique_id=1230950517]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/MarginContainer/MarginContainer" unique_id=179360429]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_nx0e2")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/MarginContainer" unique_id=1697980880]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Board" type="GridContainer" parent="CenterContainer/MarginContainer/MarginContainer/MarginContainer" unique_id=1038821625]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 16
+script = ExtResource("2_4h3n8")
 
 [node name="TopBar" type="MarginContainer" parent="." unique_id=1902768310]
 layout_mode = 0
@@ -151,18 +202,3 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture_normal = ExtResource("4_yd3r8")
 stretch_mode = 4
-
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=515521752]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Board" type="GridContainer" parent="CenterContainer" unique_id=1038821625]
-layout_mode = 2
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
-columns = 16
-script = ExtResource("2_4h3n8")
