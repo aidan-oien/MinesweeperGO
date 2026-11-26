@@ -211,3 +211,5 @@ texture_normal = ExtResource("4_yd3r8")
 stretch_mode = 4
 
 [connection signal="pressed" from="TopBar/MarginContainer/MarginContainer12/HBoxContainer/FlagButton" to="boardContainer/MarginContainer/MarginContainer/MarginContainer/Board" method="_on_flag_button_pressed"]
+[connection signal="pressed" from="TopBar/MarginContainer/MarginContainer12/HBoxContainer/FaceButton" to="boardContainer/MarginContainer/MarginContainer/MarginContainer/Board" method="_on_face_button_pressed"]
+[connection signal="pressed" from="TopBar/MarginContainer/MarginContainer12/HBoxContainer/SettingsButton" to="boardContainer/MarginContainer/MarginContainer/MarginContainer/Board" method="_on_settings_button_pressed"]
