@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MinesweeperGO"
-run/main_scene="uid://yeesqiwh5bkh"
+run/main_scene="uid://beydyx0ttlffk"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://Assets/icon.svg"
 
@@ -23,6 +23,7 @@ window/size/window_width_override=720
 window/size/window_height_override=1280
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
+window/handheld/orientation=1
 
 [dotnet]
 
@@ -46,3 +47,4 @@ pointing/emulate_touch_from_mouse=true
 textures/canvas_textures/default_texture_filter=3
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

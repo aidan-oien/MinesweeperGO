@@ -110,7 +110,7 @@ func wrong_flag():
 
 func _on_button_down() -> void:
 	button_held.emit()
-	timer.wait_time = 0.3
+	timer.wait_time = 0.4
 	timer.start()
 	label.position = Vector2( TEXT_POS_PRESSED_X, TEXT_POS_PRESSED_Y )
 

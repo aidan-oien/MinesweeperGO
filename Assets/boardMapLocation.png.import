@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbgcfsjja43vb"
 path.s3tc="res://.godot/imported/boardMapLocation.png-7723b35667dc75b3a2fc1657ae929d31.s3tc.ctex"
+path.etc2="res://.godot/imported/boardMapLocation.png-7723b35667dc75b3a2fc1657ae929d31.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/boardMapLocation.png"
-dest_files=["res://.godot/imported/boardMapLocation.png-7723b35667dc75b3a2fc1657ae929d31.s3tc.ctex"]
+dest_files=["res://.godot/imported/boardMapLocation.png-7723b35667dc75b3a2fc1657ae929d31.s3tc.ctex", "res://.godot/imported/boardMapLocation.png-7723b35667dc75b3a2fc1657ae929d31.etc2.ctex"]
 
 [params]
 

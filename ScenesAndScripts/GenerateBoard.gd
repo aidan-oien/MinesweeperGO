@@ -13,9 +13,9 @@ static var is_screen_touched : bool = false
 static var dragging : bool = false
 static var game_complete : bool = false
 
-var timer : Timer
-var time : int = 0
+signal gameComplete( isWin : bool, timeToCompletion : int, seed : String )
 
+var SEED : String = "Health Sciences: IIajsdhjkajhsdkjhaskdjh"
 var COLS : int = 16
 var ROWS : int = 30
 #var COLS : int = 10
@@ -27,13 +27,17 @@ var win : bool = false
 var FLAGS : int = 0
 var REVEALED : int = 0
 
+var timer : Timer
+var time : int = 0
 var rng : RandomNumberGenerator
 var board : Dictionary[ Vector2i, Cell ]
 
-var predrag : int = 0
-
 var VP_WIDTH : int = ProjectSettings.get_setting("display/window/size/viewport_width")
 var VP_HEIGHT : int = ProjectSettings.get_setting("display/window/size/viewport_height")
+var predrag : int = 0
+var magnifyGesturePrevPos : Vector2 = Vector2( 0, 0 )
+var magnifyGestureRelative : Vector2 = Vector2( 0, 0 )
+var magnifyGestureFirstTap : bool = true
 
 func debug_info() -> void:
 		label.text = "pos: "+str(board_container.position) + "\n" + \
@@ -60,18 +64,19 @@ func clamp_pos() -> void:
 	#debug_info()
 
 # even more jesus.
-func zoom( factor : int, zoomIn : bool ):
+func zoom( zoomPosition : Vector2, factor : float, zoomIn : bool ):
 	var scaleSensitivity : float = 1.0 / 100.0
 	var zoomOption : int = 1
 	if !zoomIn:
 		zoomOption = -1
-	board_container.position -= Vector2( ((((VP_WIDTH/2.0)-(board_container.position.x)) /100)) * factor, \
-										 ((((VP_HEIGHT/2.0)-(board_container.position.y)) /100)) * factor ) * zoomOption
+	board_container.position -= Vector2( ((((zoomPosition.x)-(board_container.position.x)) /100)) * factor, \
+										 ((((zoomPosition.y)-(board_container.position.y)) /100)) * factor ) * zoomOption
 	board_container.scale += factor * board_container.scale * scaleSensitivity * zoomOption
+
 
 func _input( event ):
 	if event is InputEventScreenDrag:
-		if !dragging and predrag > 8:
+		if !dragging and predrag > 6:
 			lock_cells()
 			if !game_complete:
 				face_button.texture_normal = load( "res://Assets/face.png" )
@@ -79,7 +84,8 @@ func _input( event ):
 			dragging = true
 		if !dragging:
 			predrag += 1
-		board_container.position += event.relative
+		if magnifyGestureFirstTap:
+			board_container.position += event.relative
 		clamp_pos()
 	
 	if event is InputEventScreenTouch:
@@ -87,27 +93,46 @@ func _input( event ):
 		if !is_screen_touched and !game_complete:
 			unlock_cells()
 			dragging = false
+			magnifyGestureFirstTap = true
 			predrag = 0
 	
 	if event is InputEventMagnifyGesture:
-		print( event.factor )
-		if board_container.scale.x < 3.0 and board_container.scale.x > 0.8:
-			zoom( event.factor, true )
-		clamp_pos()
+		lock_cells()
+		# zoom by pinching on mobile
+		if !game_complete:
+			face_button.texture_normal = load( "res://Assets/face.png" )
+			face_button.texture_pressed = load( "res://Assets/face.png" )
+		if event.factor < 1 and board_container.scale.x > 0.8 or event.factor > 1 and board_container.scale.x < 3.0:
+			zoom( event.position, (event.factor - 1) * 100, true )
 		
+		# move while zooming
+		if !magnifyGestureFirstTap:
+			magnifyGestureRelative = event.position - magnifyGesturePrevPos
+		magnifyGestureFirstTap = false
+		board_container.position += magnifyGestureRelative
+		magnifyGesturePrevPos = event.position
+		
+		clamp_pos()
+		#print( event.position )
+	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			if board_container.scale.x < 3.0:
-				zoom( 1, true )
+				zoom( Vector2( VP_WIDTH/2.0, VP_HEIGHT/2.0 ), 5, true )
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			if board_container.scale.x > 0.8:
-				zoom( 1, false )
+				zoom( Vector2( VP_WIDTH/2.0, VP_HEIGHT/2.0 ), 5, false )
 		clamp_pos()
 
 
 func _ready() -> void:
 	rng = RandomNumberGenerator.new()
-	rng.seed = 12345 # location will be here later
+	var seedInt : int = 0
+	for i in SEED.to_ascii_buffer():
+		seedInt *= 10
+		seedInt += i
+	rng.seed = seedInt # location will be here later
+	print(seedInt)
 	
 	timer = Timer.new()
 	timer.wait_time = 1
@@ -231,7 +256,7 @@ func flag_update( isFlagged : bool ) -> void:
 		mine_label.add_theme_color_override("font_color","#00ff00")
 	else:
 		mine_label.add_theme_color_override("font_color","#ff0000")
-	mine_label.text = "%03d" % (abs(MINES - FLAGS))
+	mine_label.text = "%03d" % ( abs( MINES - FLAGS ) )
 
 # checks to see if the winning conditions are satisfied
 func check_win_state() -> void:
@@ -246,7 +271,7 @@ func check_win_state() -> void:
 		face_button.texture_normal = load( "res://Assets/face_win.png" )
 		face_button.texture_pressed = load( "res://Assets/face_win.png" )
 		print("win!")
-		# game_win.emit( time )
+		gameComplete.emit( true, time, SEED )
 
 # reveal all the mines on the board, this is also the game over function
 func reveal_mines( hitCell : Cell ) -> void:
@@ -262,7 +287,7 @@ func reveal_mines( hitCell : Cell ) -> void:
 		if cell.flagged and !cell.isMine:
 			cell.wrong_flag()
 	)
-	# game_loss.emit( time )
+	gameComplete.emit( false, time, SEED )
 
 # locks cells so they can't be pressed, activated when game is over or when dragging or pinching
 func lock_cells() -> void:
