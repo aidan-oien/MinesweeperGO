@@ -1,12 +1,12 @@
 extends GridContainer
 
-@onready var flag_button: TextureButton = $"../../../../../TopBar/MarginContainer/MarginContainer12/HBoxContainer/FlagButton"
-@onready var face_button: TextureButton = $"../../../../../TopBar/MarginContainer/MarginContainer12/HBoxContainer/FaceButton"
-@onready var settings_button: TextureButton = $"../../../../../TopBar/MarginContainer/MarginContainer12/HBoxContainer/SettingsButton"
-@onready var mine_label: Label = $"../../../../../TopBar/MarginContainer/MarginContainer12/HBoxContainer/MarginContainer2/MarginContainer/MineLabel"
-@onready var timer_label: Label = $"../../../../../TopBar/MarginContainer/MarginContainer12/HBoxContainer/MarginContainer/MarginContainer/TimerLabel"
-@onready var board_container: Container = $"../../../.."
-@onready var board_grid: GridContainer = $"."
+@export var flag_button: TextureButton
+@export var face_button: TextureButton
+@export var settings_button: TextureButton
+@export var mine_label: Label
+@export var timer_label: Label
+@export var board_container: Container
+@onready var label: Label = $"../../../../Label"
 
 static var flagmode : bool = false
 static var is_screen_touched : bool = false
@@ -18,9 +18,11 @@ var time : int = 0
 
 var COLS : int = 16
 var ROWS : int = 30
-var MINES : int = 99
-var TOTAL : int = COLS * ROWS
+#var COLS : int = 10
+#var ROWS : int = 10
+var MINES : int = 99 # numbers above TOTAL will be clamped
 
+var TOTAL : int = COLS * ROWS
 var win : bool = false
 var FLAGS : int = 0
 var REVEALED : int = 0
@@ -29,6 +31,43 @@ var rng : RandomNumberGenerator
 var board : Dictionary[ Vector2i, Cell ]
 
 var predrag : int = 0
+
+var VP_WIDTH : int = ProjectSettings.get_setting("display/window/size/viewport_width")
+var VP_HEIGHT : int = ProjectSettings.get_setting("display/window/size/viewport_height")
+
+func debug_info() -> void:
+		label.text = "pos: "+str(board_container.position) + "\n" + \
+		"size: "+str( board_container.size ) + "\n" + \
+		"scale: "+str( board_container.scale ) + "\n" + \
+		str( get_window().size.x - board_container.size.x ) + "\n" + \
+		str( VP_HEIGHT ) + "\n" + \
+		str( board_container.size.x )+ "\n" + \
+		"these "+str((((VP_WIDTH/2.0)-(board_container.position.x)) /100)/board_container.scale.x)+ "\n" + \
+		"two   "+str((((VP_HEIGHT/2.0)-(board_container.position.y)) /100)/board_container.scale.y)+ "\n" + \
+		#str(margin_container.size.x/(1*100))+ "\n" + \
+		str(board_container.size.x/(2*100))+ "\n" + \
+		""
+
+# jesus.
+func clamp_pos() -> void:
+	var boardScale = board_container.scale.x
+	board_container.position.x = clamp( board_container.position.x, \
+										-board_container.size.x * boardScale + board_container.size.x/2, \
+										(VP_WIDTH - board_container.size.x * boardScale) + (board_container.size.x * boardScale - board_container.size.x/2 ) )
+	board_container.position.y = clamp( board_container.position.y, \
+										-board_container.size.y * boardScale + board_container.size.y/2, \
+										(VP_HEIGHT - board_container.size.y * boardScale) + (board_container.size.y * boardScale - board_container.size.y/2 ) )
+	#debug_info()
+
+# even more jesus.
+func zoom( factor : int, zoomIn : bool ):
+	var scaleSensitivity : float = 1.0 / 100.0
+	var zoomOption : int = 1
+	if !zoomIn:
+		zoomOption = -1
+	board_container.position -= Vector2( ((((VP_WIDTH/2.0)-(board_container.position.x)) /100)) * factor, \
+										 ((((VP_HEIGHT/2.0)-(board_container.position.y)) /100)) * factor ) * zoomOption
+	board_container.scale += factor * board_container.scale * scaleSensitivity * zoomOption
 
 func _input( event ):
 	if event is InputEventScreenDrag:
@@ -41,6 +80,7 @@ func _input( event ):
 		if !dragging:
 			predrag += 1
 		board_container.position += event.relative
+		clamp_pos()
 	
 	if event is InputEventScreenTouch:
 		is_screen_touched = !is_screen_touched
@@ -50,19 +90,19 @@ func _input( event ):
 			predrag = 0
 	
 	if event is InputEventMagnifyGesture:
-		print(event.factor)
-		board_container.scale += event.factor
-		board_container.scale = clamp( board_container.scale, Vector2( 0.8, 0.8 ), Vector2( 2.0, 2.0 ) )
+		print( event.factor )
+		if board_container.scale.x < 3.0 and board_container.scale.x > 0.8:
+			zoom( event.factor, true )
+		clamp_pos()
 		
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			if board_container.scale.x < 3.0:
-				board_container.scale += Vector2( 0.02, 0.02 )
-				board_container.position -= Vector2( position.x, position.y )
+				zoom( 1, true )
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			if board_container.scale.x > 0.8:
-				board_container.scale -= Vector2( 0.02, 0.02 )
-				board_container.position += Vector2( position.x, position.y )
+				zoom( 1, false )
+		clamp_pos()
 
 
 func _ready() -> void:
@@ -74,9 +114,10 @@ func _ready() -> void:
 	timer.timeout.connect( second_elapsed )
 	add_child(timer)
 	
+	MINES = clamp( MINES, 0, TOTAL )
 	mine_label.text = "%03d" % (MINES - FLAGS)
 	
-	board_grid.columns = COLS
+	columns = COLS
 	
 	# create board
 	for i in TOTAL:
