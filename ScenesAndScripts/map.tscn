@@ -2,23 +2,9 @@
 
 [ext_resource type="ArrayMesh" uid="uid://c2svs882wg32o" path="res://Assets/3dDude.obj" id="1_c7s6e"]
 [ext_resource type="Script" uid="uid://b8y5va3a0o36t" path="res://ScenesAndScripts/map.gd" id="1_e0an3"]
-[ext_resource type="Texture2D" uid="uid://bdigqixwdd332" path="res://Assets/texture_dev_01.png" id="1_wijl4"]
 [ext_resource type="PackedScene" uid="uid://dt5ygslnv6e2d" path="res://ScenesAndScripts/map_ui.tscn" id="4_p5pve"]
+[ext_resource type="Script" uid="uid://do8gyrqmrngys" path="res://ScenesAndScripts/tile_manager.gd" id="5_1fk8k"]
 [ext_resource type="PackedScene" uid="uid://bjpyqr8w0haky" path="res://ScenesAndScripts/board_marker.tscn" id="5_urblq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0an3"]
-albedo_texture = ExtResource("1_wijl4")
-uv1_triplanar = true
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_hwc55"]
-material = SubResource("StandardMaterial3D_e0an3")
-size = Vector2(100, 100)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wijl4"]
-albedo_color = Color(0, 0.7372549, 1, 1)
-emission_enabled = true
-emission = Color(0, 0.7372549, 1, 1)
-emission_energy_multiplier = 0.5
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xmkr1"]
 sky_top_color = Color(0.3014234, 0.58564836, 0.76662046, 1)
@@ -41,30 +27,26 @@ fog_sky_affect = 0.0
 fog_depth_begin = 1.0
 fog_depth_end = 20.0
 
-[node name="Map" type="Node3D" unique_id=237678804 node_paths=PackedStringArray("camera_anchor")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wijl4"]
+albedo_color = Color(0, 0.7372549, 1, 1)
+emission_enabled = true
+emission = Color(0, 0.7372549, 1, 1)
+emission_energy_multiplier = 0.5
+
+[node name="Map" type="Node3D" unique_id=237678804 node_paths=PackedStringArray("camera_anchor", "tiles", "player")]
 script = ExtResource("1_e0an3")
 camera_anchor = NodePath("CameraAnchor")
+tiles = NodePath("Tiles")
+player = NodePath("Player")
 
 [node name="CameraAnchor" type="Marker3D" parent="." unique_id=873600687]
 transform = Transform3D(0.9396926, 0, -0.34202012, 0, 1, 0, 0.34202012, 0, 0.9396926, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraAnchor" unique_id=1900181709]
-transform = Transform3D(1, 0, 0, 0, 0.9947118, 0.10270583, 0, -0.10270583, 0.9947118, 0, 0.94444907, 2.8837745)
+transform = Transform3D(1.0000001, 0, 0, 0, 0.9432227, 0.33216113, 0, -0.33216116, 0.94322276, -2.9802322e-07, 2.1410615, 2.883776)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="CameraAnchor" unique_id=1663253893]
 transform = Transform3D(0.8511012, -0.4646111, 0.24446537, 0, 0.46564683, 0.8849707, -0.5250017, -0.75319964, 0.39631256, 0, 1.2762923, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2084059098]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0024853945, 0.0039051175, 0.00011277199)
-mesh = SubResource("PlaneMesh_hwc55")
-
-[node name="Marker3D" type="Marker3D" parent="MeshInstance3D" unique_id=258962388]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
-
-[node name="3dDude" type="MeshInstance3D" parent="MeshInstance3D/Marker3D" unique_id=2030547077]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = ExtResource("1_c7s6e")
-surface_material_override/0 = SubResource("StandardMaterial3D_wijl4")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1867434079]
 environment = SubResource("Environment_hwc55")
@@ -79,3 +61,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
 [node name="boardMaker3" parent="." unique_id=1936253925 instance=ExtResource("5_urblq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Player" type="Marker3D" parent="." unique_id=2009664532]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="3dDude" type="MeshInstance3D" parent="Player" unique_id=2030547077]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0.016569294, 1.026034, 0.0007518131)
+mesh = ExtResource("1_c7s6e")
+surface_material_override/0 = SubResource("StandardMaterial3D_wijl4")
+
+[node name="Tiles" type="Node3D" parent="." unique_id=1061361531]
+script = ExtResource("5_1fk8k")

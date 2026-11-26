@@ -23,10 +23,15 @@ window/size/window_width_override=720
 window/size/window_height_override=1280
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
+window/handheld/orientation=1
 
 [dotnet]
 
 project/assembly_name="MinesweeperGO"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/PraxisMapperGPSPlugin/plugin.cfg")
 
 [filesystem]
 
@@ -45,3 +50,4 @@ pointing/emulate_touch_from_mouse=true
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
