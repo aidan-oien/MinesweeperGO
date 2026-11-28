@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bnor3e7g388x6" path="res://Assets/inset.png" id="1_8koxf"]
 [ext_resource type="Texture2D" uid="uid://canv5n8xhp7m0" path="res://Assets/checkbox_y.png" id="1_pqfjh"]
 [ext_resource type="Texture2D" uid="uid://ddsa1t5w5xu10" path="res://Assets/checkbox_n.png" id="2_8koxf"]
+[ext_resource type="Script" uid="uid://ccrf1dhr4mqgn" path="res://ScenesAndScripts/audio_settings.gd" id="2_p6img"]
 [ext_resource type="Texture2D" uid="uid://dliej55w4j6hb" path="res://Assets/ssd_inset.png" id="4_8nt3v"]
 [ext_resource type="Texture2D" uid="uid://coia3e004l34w" path="res://Assets/back.png" id="6_qmqds"]
 
@@ -27,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_p6img")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=942183618]
 layout_mode = 1
@@ -126,6 +128,7 @@ theme_override_font_sizes/font_size = 16
 text = "Volume"
 
 [node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MarginContainer5/MarginContainer/ItemList/VBoxContainer/MarginContainer/VBoxContainer" unique_id=850896731]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_hwc55")
@@ -162,6 +165,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/MarginContainer5/MarginContainer/ItemList/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=525093980]
+unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_fnwo5")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -209,6 +213,7 @@ theme_override_font_sizes/font_size = 16
 text = "Override Theme Sounds"
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/MarginContainer5/MarginContainer/ItemList/VBoxContainer/MarginContainer3/VBoxContainer" unique_id=913901958]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_4w2ea")
@@ -243,7 +248,8 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_bottom = 8
 
-[node name="Back Button" type="TextureButton" parent="MarginContainer/VBoxContainer/BackContainer" unique_id=1107806672]
+[node name="Back_Button" type="TextureButton" parent="MarginContainer/VBoxContainer/BackContainer" unique_id=1107806672]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 texture_normal = ExtResource("6_qmqds")

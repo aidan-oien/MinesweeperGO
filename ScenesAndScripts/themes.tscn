@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b4y56vw7wsqd0"]
 
+[ext_resource type="Script" uid="uid://c7dlk7tgixquv" path="res://ScenesAndScripts/themes_settings.gd" id="1_161mf"]
 [ext_resource type="Texture2D" uid="uid://dp5x0xdplgk5w" path="res://Assets/bevel.png" id="1_snhn1"]
 [ext_resource type="Texture2D" uid="uid://bnor3e7g388x6" path="res://Assets/inset.png" id="2_161mf"]
 [ext_resource type="Texture2D" uid="uid://dlk35a05jbpfx" path="res://Assets/face.png" id="3_feel6"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_161mf")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=942183618]
 layout_mode = 1
@@ -154,11 +156,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Classic"
 
-[node name="Button2" type="Button" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer" unique_id=743546784]
-visible = false
+[node name="Classic" type="Button" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer" unique_id=743546784]
+unique_name_in_owner = true
 layout_mode = 2
 text = "
 "
+flat = true
 alignment = 0
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List" unique_id=547399651]
@@ -218,11 +221,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Light"
 
-[node name="Button2" type="Button" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer2" unique_id=2116874046]
-visible = false
+[node name="Light" type="Button" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer2" unique_id=2116874046]
+unique_name_in_owner = true
 layout_mode = 2
 text = "
 "
+flat = true
 alignment = 0
 
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List" unique_id=379610914]
@@ -283,11 +287,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Dark"
 
-[node name="Button2" type="Button" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer3" unique_id=2005556161]
-visible = false
+[node name="Dark" type="Button" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer3" unique_id=2005556161]
+unique_name_in_owner = true
 layout_mode = 2
 text = "
 "
+flat = true
 alignment = 0
 
 [node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List" unique_id=1697159774]
@@ -348,11 +353,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "OLED Black"
 
-[node name="Button2" type="Button" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer4" unique_id=1632441120]
-visible = false
+[node name="OLED_Black" type="Button" parent="MarginContainer/Components/MarginContainer5/MarginContainer/ItemList/List/MarginContainer4" unique_id=1632441120]
+unique_name_in_owner = true
 layout_mode = 2
 text = "
 "
+flat = true
 alignment = 0
 
 [node name="BackContainer" type="MarginContainer" parent="MarginContainer/Components" unique_id=908494832]
@@ -361,7 +367,8 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_bottom = 8
 
-[node name="Back Button" type="TextureButton" parent="MarginContainer/Components/BackContainer" unique_id=284536156]
+[node name="Back_Button" type="TextureButton" parent="MarginContainer/Components/BackContainer" unique_id=284536156]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 texture_normal = ExtResource("4_32nml")

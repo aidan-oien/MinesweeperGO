@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bnor3e7g388x6" path="res://Assets/inset.png" id="3_tve13"]
 [ext_resource type="Texture2D" uid="uid://coia3e004l34w" path="res://Assets/back.png" id="4_25tx7"]
 [ext_resource type="Texture2D" uid="uid://cjgugh0npasw4" path="res://Assets/emptyButton.png" id="4_e0ukv"]
+[ext_resource type="Script" uid="uid://cpehbe5ng7sju" path="res://ScenesAndScripts/settings_page.gd" id="5_e0ukv"]
 
 [node name="Settings" type="Control" unique_id=557893005]
 layout_mode = 3
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_e0ukv")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=942183618]
 layout_mode = 1
@@ -159,11 +161,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Themes"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer5/MarginContainer/ItemList/VBoxContainer/MarginContainer4" unique_id=653369593]
-visible = false
+[node name="Theme_Settings" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer5/MarginContainer/ItemList/VBoxContainer/MarginContainer4" unique_id=653369593]
+unique_name_in_owner = true
 layout_mode = 2
 text = "
 "
+flat = true
 alignment = 0
 
 [node name="MarginContainer5" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer5/MarginContainer/ItemList/VBoxContainer" unique_id=1297836076]
@@ -224,11 +227,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Audio"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer5/MarginContainer/ItemList/VBoxContainer/MarginContainer5" unique_id=547051738]
-visible = false
+[node name="Audio_Settings" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer5/MarginContainer/ItemList/VBoxContainer/MarginContainer5" unique_id=547051738]
+unique_name_in_owner = true
 layout_mode = 2
 text = "
 "
+flat = true
 alignment = 0
 
 [node name="MarginContainer6" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer5/MarginContainer/ItemList/VBoxContainer" unique_id=642436189]
@@ -289,11 +293,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Profile"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer5/MarginContainer/ItemList/VBoxContainer/MarginContainer6" unique_id=659287263]
-visible = false
+[node name="Profile_Settings" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer5/MarginContainer/ItemList/VBoxContainer/MarginContainer6" unique_id=659287263]
+unique_name_in_owner = true
 layout_mode = 2
 text = "
 "
+flat = true
 alignment = 0
 
 [node name="BackContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=2134180771]
@@ -302,7 +307,8 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_bottom = 8
 
-[node name="Back Button" type="TextureButton" parent="MarginContainer/VBoxContainer/BackContainer" unique_id=1392885737]
+[node name="Back_Button" type="TextureButton" parent="MarginContainer/VBoxContainer/BackContainer" unique_id=1392885737]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 texture_normal = ExtResource("4_25tx7")
